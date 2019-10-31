@@ -27,18 +27,17 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Connection extends AsyncTask<Void, Void, Void>
 {
+    String id;
+    Connection(String id)
+    {
+        this.id = id;
+    }
+
+
     @Override
     protected Void doInBackground(Void... voids) {
 
 
-//        OkHttpClient client = new OkHttpClient.Builder()
-//                .certificatePinner(new CertificatePinner.Builder()
-//                        .add("publicobject.com", "sha1/DmxUShsZuNiqPQsX2Oi9uv2sCnw=")
-//                        .add("publicobject.com", "sha1/SXxoaOSEzPC6BgGmxAt/EAcsajw=")
-//                        .add("publicobject.com", "sha1/blhOM3W9V/bVQhsWAcLYwPU6n24=")
-//                        .add("publicobject.com", "sha1/T5x9IXmcrQ7YuQxXnxoCmeeQ84c=")
-//                        .build())
-//                .build();
 
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
@@ -50,13 +49,14 @@ public class Connection extends AsyncTask<Void, Void, Void>
 
 
         Retrofit m = new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:5000/")
+                .baseUrl("http://10.0.2.2:8080/")
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
         GetDataService GDS = m.create(GetDataService.class);
         //JsonReader.setLenient(true);
         Call<String> call = GDS.Get();
+        //Call<String> call = GDS.Get(id);
         Response<String> x = null;
         try {
             x = call.execute();
