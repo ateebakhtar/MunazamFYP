@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">MunazamFYP</string>
+    <string name="tab_text_1">Workload</string>
+    <string name="tab_text_2">Reminder</string>
+    <string name="tab_text_3">User Data</string>
+    <string name="tab_text_4">Meetings</string>
+    <string name="tab_text_5">GPA Management</string>
 </resources>

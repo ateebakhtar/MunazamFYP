@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.munazamfyp.DataModels.Data;
+
 public class EmailVerification extends AppCompatActivity {
     EditText code;
     @Override

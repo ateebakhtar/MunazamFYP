@@ -8,6 +8,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.munazamfyp.Connections.GetReminderConnection;
+import com.example.munazamfyp.Connections.WorkloadConnection;
+
 import java.io.IOException;
 import java.util.List;
 
@@ -25,25 +28,33 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        new GetReminderConnection().execute();
+        new WorkloadConnection().execute();
+        Intent i = new Intent(this,SplashScreen.class);
+        //startActivity(i);
+    }
+    public void openX(View view)
+    {
+        Intent i = new Intent(this,EnterReminder.class);
+        startActivity(i);
+    }
+    public void Openy(View view)
+    {
+        Intent i = new Intent(this,ReminderView.class);
+        startActivity(i);
+    }
+    public void openw(View view)
+    {
+        Intent i = new Intent(this,WorkloadView.class);
+        startActivity(i);
+    }
+    public void openmain(View view)
+    {
+        Intent i = new Intent(this,SplashScreen.class);
+        startActivity(i);
     }
     public void axd(View view) throws IOException
     {
-//        EditText id = findViewById(R.id.editText);
-//        String id1 = id.getText().toString();
-//        new Connection(id1).execute();
-//        Retrofit m = new Retrofit.Builder().baseUrl("http://10.0.2.2:5000/api/")
-//                .addConverterFactory(GsonConverterFactory.create()).build();
-//        GetDataService GDS = m.create(GetDataService.class);
-//
-//        Call<String> call = GDS.Get();
-//        Response<String> x = null;
-//        try {
-//            x = call.execute();
-//            System.out.println(x);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-
         Intent i = new Intent(this,SignUp.class);
         startActivity(i);
     }

@@ -1,10 +1,10 @@
-package com.example.munazamfyp;
+package com.example.munazamfyp.DataModels;
 
 public class UserData
 {
-    String name;
+    public static String name = null;
     String ID;
-    String password;
+    public static String password;
 
     public String getName() {
         return name;

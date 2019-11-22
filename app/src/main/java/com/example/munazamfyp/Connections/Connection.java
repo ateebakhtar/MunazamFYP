@@ -1,23 +1,13 @@
-package com.example.munazamfyp;
+package com.example.munazamfyp.Connections;
 
 import android.os.AsyncTask;
-import android.util.JsonReader;
 
+import com.example.munazamfyp.Interfaces.GetDataService;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.io.IOException;
-import java.security.cert.CertificateException;
-import java.util.List;
 
-import javax.net.ssl.HostnameVerifier;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSession;
-import javax.net.ssl.SSLSocketFactory;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.X509TrustManager;
-
-import okhttp3.CertificatePinner;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
