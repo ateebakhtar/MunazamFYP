@@ -2,6 +2,26 @@ package com.example.munazamfyp.DataModels;
 
 public class Workload
 {
+
+    String day;
+    String dayleft;
+    String type;
+    String course;
+    String id;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+
+    public Workload()
+    {
+
+    }
     public String getDay() {
         return day;
     }
@@ -17,21 +37,12 @@ public class Workload
     public void setDayleft(String dayleft) {
         this.dayleft = dayleft;
     }
-
-    String day;
-    String dayleft;
-    String type;
-    String course;
-    public Workload()
-    {
-
-    }
-
-    public void insert(String date, String type, String course, String dayl) {
+    public void insert(String date, String type, String course, String dayl,String id) {
         this.day = date;
         this.type = type;
-        course = course;
+        this.course = course;
         this.dayleft = dayl;
+        this.id = id;
     }
 
 
@@ -48,7 +59,7 @@ public class Workload
     }
 
     public void setCourse(String course) {
-        course = course;
+        this.course = course;
     }
 
 }

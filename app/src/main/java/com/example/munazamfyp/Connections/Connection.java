@@ -3,6 +3,7 @@ package com.example.munazamfyp.Connections;
 import android.os.AsyncTask;
 
 import com.example.munazamfyp.Interfaces.GetDataService;
+import com.example.munazamfyp.Interfaces.WorkloadInterface;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -16,7 +17,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Connection extends AsyncTask<Void, Void, Void>
-{
+    {
     String id;
     Connection(String id)
     {
@@ -43,9 +44,9 @@ public class Connection extends AsyncTask<Void, Void, Void>
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
-        GetDataService GDS = m.create(GetDataService.class);
+        WorkloadInterface GDS = m.create(WorkloadInterface.class);
         //JsonReader.setLenient(true);
-        Call<String> call = GDS.Get();
+        Call<String> call = GDS.data(id);
         //Call<String> call = GDS.Get(id);
         Response<String> x = null;
         try {

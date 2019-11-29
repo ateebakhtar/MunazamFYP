@@ -28,7 +28,7 @@ public class SplashScreen extends AppCompatActivity {
             public void run() {
                 if(nam != null)
                 {
-                    Intent intent=new Intent(SplashScreen.this,ContinueAs.class);
+                    Intent intent=new Intent(SplashScreen.this,mainmenu.class);
                     startActivity(intent);
                 }
                 else
@@ -38,7 +38,7 @@ public class SplashScreen extends AppCompatActivity {
                 }
                 finish();
             }
-        },3000);
+        },4500);
 
 
     }

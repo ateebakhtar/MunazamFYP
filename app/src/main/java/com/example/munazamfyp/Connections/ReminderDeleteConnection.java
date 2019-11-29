@@ -2,15 +2,12 @@ package com.example.munazamfyp.Connections;
 
 import android.os.AsyncTask;
 
-import com.example.munazamfyp.DataModels.Data;
-import com.example.munazamfyp.DataModels.ReminderModel;
-import com.example.munazamfyp.Interfaces.GetDataService;
 import com.example.munazamfyp.Interfaces.ReminderInterface;
+import com.example.munazamfyp.Interfaces.WorkloadInterface;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -19,8 +16,15 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class GetReminderConnection extends AsyncTask<Void, Void, Void>
+public class ReminderDeleteConnection extends AsyncTask<Void, Void, Void>
 {
+    String id;
+    public ReminderDeleteConnection(String id)
+    {
+        this.id = id;
+    }
+
+
     @Override
     protected Void doInBackground(Void... voids) {
 
@@ -37,23 +41,20 @@ public class GetReminderConnection extends AsyncTask<Void, Void, Void>
 
         Retrofit m = new Retrofit.Builder()
                 .baseUrl("http://10.0.2.2:8080/")
-                //.baseUrl("http://192.168.100.6:8080/")
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
         ReminderInterface GDS = m.create(ReminderInterface.class);
         //JsonReader.setLenient(true);
-        Call<ArrayList<ReminderModel>> call = GDS.getdata("a");
+        Call<String> call = GDS.datad(id);
         //Call<String> call = GDS.Get(id);
-        Response<ArrayList<ReminderModel>> x = null;
+        Response<String> x = null;
         try {
             x = call.execute();
             System.out.println(x);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Data.x = x.body();
-
         return null;
     }
 }

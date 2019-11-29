@@ -16,4 +16,7 @@ public interface ReminderInterface
 
     @GET("/reminder/{id}")
     Call<ArrayList<ReminderModel>> getdata(@Path("id") String id);
+
+    @GET("/deletereminder/{id}")
+    public Call<String> datad(@Path("id") String id);
 }

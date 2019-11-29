@@ -14,4 +14,7 @@ public interface LoginInterface
 
     @GET("login/{name}/{pass}")
     Call<String> Getlogin(@Path("name") String name,@Path("pass") String pass);
+
+    @GET("editlogin/{name}/{pass}/{id}")
+    Call<String> getedit(@Path("name") String name, @Path("pass") String pass, @Path("id") String id);
 }

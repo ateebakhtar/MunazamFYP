@@ -27,9 +27,20 @@ public class Login extends AppCompatActivity {
         final EditText name = findViewById(R.id.editText6);
         final EditText pass = findViewById(R.id.editText7);
 
-        if(name.getText().toString() != null && pass.getText().toString() != null)
+
+        if(name.getText().toString() == null)
         {
-            new SIgninConnection(name.getText().toString(),pass.getText().toString()).execute();
+            name.setError("Enter ID");
+            name.requestFocus();
+        }
+        else if(name.getText().toString().length() != 7 )
+        {
+            name.setError("Enter Valid ID");
+            name.requestFocus();
+        }
+        else if(name.getText().toString() != null && pass.getText().toString() != null)
+        {
+            //new SIgninConnection(name.getText().toString(),pass.getText().toString()).execute();
 
             handler =new Handler();
             handler.postDelayed(new Runnable() {
@@ -54,9 +65,11 @@ public class Login extends AppCompatActivity {
                     }
                     else
                     {
-                        Toast.makeText(Login.this,"Incorrecnt Password",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Login.this,"Incorrecnt ID or Password",Toast.LENGTH_SHORT).show();
+                        name.setError("Incorrecnt ID or Password");
+                        pass.setError("Incorrecnt ID or Password");
                     }
-                    finish();
+                    //finish();
                 }
             },2000);
 

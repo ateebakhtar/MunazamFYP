@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         new GetReminderConnection().execute();
         new WorkloadConnection().execute();
         Intent i = new Intent(this,SplashScreen.class);
-        //startActivity(i);
+        startActivity(i);
     }
     public void openX(View view)
     {
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void openmain(View view)
     {
-        Intent i = new Intent(this,SplashScreen.class);
+        Intent i = new Intent(this,mainmenu.class);
         startActivity(i);
     }
     public void axd(View view) throws IOException

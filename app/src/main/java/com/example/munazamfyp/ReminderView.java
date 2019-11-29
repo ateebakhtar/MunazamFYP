@@ -31,8 +31,7 @@ public class ReminderView extends AppCompatActivity {
 
         ArrayList<ReminderModel> example_items= new ArrayList<>();
 
-//        GetReminderConnection x = new GetReminderConnection();
-//        x.execute();
+
         mRecyclerView = findViewById(R.id.recyclerView);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);

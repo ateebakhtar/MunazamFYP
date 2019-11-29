@@ -1,6 +1,6 @@
 package com.example.munazamfyp.DataModels;
 
-public class Example_item
+public class WorkloadViewModel
 {
 
 
@@ -13,7 +13,7 @@ public class Example_item
     private String Edittext1;
     private int a;
 
-    public Example_item(String imageResource1, String imageResource2, String imageResource3, String imageResource4, String edittext1) {
+    public WorkloadViewModel(String imageResource1, String imageResource2, String imageResource3, String imageResource4, String edittext1) {
         ImageResource1 = imageResource1;
         ImageResource2 = imageResource2;
         ImageResource3 = imageResource3;

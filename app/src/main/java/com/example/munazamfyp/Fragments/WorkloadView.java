@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.munazamfyp.Adapters.WorkloadViewAdapter;
 import com.example.munazamfyp.DataModels.Data;
-import com.example.munazamfyp.DataModels.Example_item;
+import com.example.munazamfyp.DataModels.WorkloadViewModel;
 import com.example.munazamfyp.DataModels.PageViewModel;
 import com.example.munazamfyp.DataModels.Workload;
 import com.example.munazamfyp.R;
@@ -24,7 +24,7 @@ import static com.example.munazamfyp.DataModels.Data.y;
 
 public class WorkloadView extends Fragment
 {
-    ArrayList<Example_item> list1 = new ArrayList<>();
+    ArrayList<WorkloadViewModel> list1 = new ArrayList<>();
 
     WorkloadView()
     {
@@ -57,7 +57,7 @@ public class WorkloadView extends Fragment
         View root = inflater.inflate(R.layout.activity_workload_view, container, false);
 
 
-        ArrayList<Example_item> exampleList = new ArrayList<>();
+        ArrayList<WorkloadViewModel> exampleList = new ArrayList<>();
 
         mRecyclerView=root.findViewById(R.id.recyclerView);
         mRecyclerView.setHasFixedSize(true);
@@ -97,31 +97,31 @@ public class WorkloadView extends Fragment
             }
             switch (m) {
                 case Calendar.SUNDAY:
-                    list1.add(new Example_item("a"+task[0],"q"+task[2],"p"+task[1],"e"+task[3],"Sunday"));
+                    list1.add(new WorkloadViewModel("a"+task[0],"q"+task[2],"p"+task[1],"e"+task[3],"Sunday"));
                     // Current day is Sunday
                     break;
                 case Calendar.WEDNESDAY:
-                    list1.add(new Example_item("a"+task[0],"q"+task[2],"p"+task[1],"e"+task[3],"Wednesday"));
+                    list1.add(new WorkloadViewModel("a"+task[0],"q"+task[2],"p"+task[1],"e"+task[3],"Wednesday"));
                     // Current day is Monday
                     break;
                 case Calendar.THURSDAY:
-                    list1.add(new Example_item("a"+task[0],"q"+task[2],"p"+task[1],"e"+task[3],"Thursday"));
+                    list1.add(new WorkloadViewModel("a"+task[0],"q"+task[2],"p"+task[1],"e"+task[3],"Thursday"));
                     // Current day is Monday
                     break;
                 case Calendar.FRIDAY:
-                    list1.add(new Example_item("a"+task[0],"q"+task[2],"p"+task[1],"e"+task[3],"Friday"));
+                    list1.add(new WorkloadViewModel("a"+task[0],"q"+task[2],"p"+task[1],"e"+task[3],"Friday"));
                     // Current day is Monday
                     break;
                 case Calendar.MONDAY:
-                    list1.add(new Example_item("a"+task[0],"q"+task[2],"p"+task[1],"e"+task[3],"Monday"));
+                    list1.add(new WorkloadViewModel("a"+task[0],"q"+task[2],"p"+task[1],"e"+task[3],"Monday"));
                     // Current day is Monday
                     break;
                 case Calendar.TUESDAY:
-                    list1.add(new Example_item("a"+task[0],"q"+task[2],"p"+task[1],"e"+task[3],"Tuesday"));
+                    list1.add(new WorkloadViewModel("a"+task[0],"q"+task[2],"p"+task[1],"e"+task[3],"Tuesday"));
                     // etc.
                     break;
                 case Calendar.SATURDAY:
-                    list1.add(new Example_item("a"+task[0],"q"+task[2],"p"+task[1],"e"+task[3],"Saturday"));
+                    list1.add(new WorkloadViewModel("a"+task[0],"q"+task[2],"p"+task[1],"e"+task[3],"Saturday"));
                     // Current day is Monday
                     break;
             }
@@ -131,7 +131,7 @@ public class WorkloadView extends Fragment
             {
                 m = 1;
             }
-            //list1.add(new Example_item("a1","q1","p","e1","7/10/20"));
+            //list1.add(new WorkloadViewModel("a1","q1","p","e1","7/10/20"));
         }
 
 

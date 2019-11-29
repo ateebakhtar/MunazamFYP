@@ -14,18 +14,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.munazamfyp.Adapters.ReminderAdapter;
 import com.example.munazamfyp.DataModels.Data;
-import com.example.munazamfyp.DataModels.Example_item;
+import com.example.munazamfyp.DataModels.WorkloadViewModel;
 import com.example.munazamfyp.DataModels.ReminderModel;
 import com.example.munazamfyp.EnterReminder;
 import com.example.munazamfyp.DataModels.PageViewModel;
 import com.example.munazamfyp.R;
-import com.example.munazamfyp.SplashScreen;
 
 import java.util.ArrayList;
 
 public class ReminderView extends Fragment
 {
-    ArrayList<Example_item> list1 = new ArrayList<>();
+    ArrayList<WorkloadViewModel> list1 = new ArrayList<>();
 
     ReminderView()
     {
@@ -44,14 +43,15 @@ public class ReminderView extends Fragment
     private ImageButton B;
     private PageViewModel pageViewModel;
     View root;
+
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         pageViewModel = ViewModelProviders.of(this).get(PageViewModel.class);
         pageViewModel.setIndex("Reminder");
-
-
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -69,15 +69,14 @@ public class ReminderView extends Fragment
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
 
-
         B.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openreminder();
             }
         });
-
         return root;
+
     }
     public void openreminder()
     {

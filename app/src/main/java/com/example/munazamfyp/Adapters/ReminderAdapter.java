@@ -22,6 +22,8 @@ import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.munazamfyp.Connections.ReminderDeleteConnection;
+import com.example.munazamfyp.DataModels.Data;
 import com.example.munazamfyp.DataModels.ReminderModel;
 import com.example.munazamfyp.EnterReminder;
 import com.example.munazamfyp.MainActivity;
@@ -66,7 +68,7 @@ public class ReminderAdapter extends RecyclerView.Adapter<ReminderAdapter.Exampl
 
     @Override
     public void onBindViewHolder(ReminderAdapter.ExampleViewHolder holder, int position) {
-        ReminderModel currentItem = mExampleList.get(position);
+        final ReminderModel currentItem = mExampleList.get(position);
 
         if(currentItem.getType().equals("Assignment"))
         {
@@ -91,7 +93,7 @@ public class ReminderAdapter extends RecyclerView.Adapter<ReminderAdapter.Exampl
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(final View view) {
                 Toast.makeText(view.getContext(), "Recycle Click" , Toast.LENGTH_SHORT).show();
                 DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
                     @Override
@@ -101,11 +103,20 @@ public class ReminderAdapter extends RecyclerView.Adapter<ReminderAdapter.Exampl
                                 //edit button clicked
                                 //open enter reminder screen
                                 //remove the item aswell
+                                System.out.println();
+                                Data.RID = currentItem.getId();
+                                System.out.println("datatatata "+Data.RID);
+
+                                Intent i = new Intent(view.getContext(),EnterReminder.class);
+                                view.getContext().startActivity(i);
                                 break;
 
                             case DialogInterface.BUTTON_NEGATIVE:
                                 //delete button clicked
                                 //open reminder screen
+                                new ReminderDeleteConnection(currentItem.getId()).execute();
+                                Intent i1 = new Intent(view.getContext(),MainActivity.class);
+                                view.getContext().startActivity(i1);
                                 break;
                         }
                     }
@@ -117,9 +128,10 @@ public class ReminderAdapter extends RecyclerView.Adapter<ReminderAdapter.Exampl
 
             }
         });
-
+        System.out.println(currentItem.getDate());
+        String data[] = currentItem.getDate().split(" ");
         holder.mTextView1.setText(currentItem.getCoursename());
-        holder.mTextView2.setText(currentItem.getDate());
+        holder.mTextView2.setText("Date: "+data[0]+" - "+data[1]);
     }
 
 

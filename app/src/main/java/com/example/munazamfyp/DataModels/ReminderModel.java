@@ -30,14 +30,24 @@ public class ReminderModel
     String date;
     String type;
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    String id;
     public ReminderModel()
     {
 
     }
-    public ReminderModel(String c,String d, String t)
+    public ReminderModel(String c,String d, String t,String id)
     {
         coursename = c;
         date = d;
         type = t;
+        this.id = id;
     }
 }

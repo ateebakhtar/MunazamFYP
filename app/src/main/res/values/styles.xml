@@ -1,13 +1,28 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="colorButtonNormal">#2196f3</item>
+        <item name="editTextColor">@color/colorAccent</item>
+        <item name="android:background">@color/background</item>
     </style>
+    <style name="buttonstyle" >
+        <item name="android:textColor" >#ffffff</item>
+    </style>
+    <style name="DialogTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="textColorAlertDialogListItem">#ffffff</item>
+    </style>
+
+
+
+
+
+
 
 </resources>

@@ -14,4 +14,8 @@ public interface WorkloadInterface
 
     @GET("/workload")
     public Call<ArrayList<Workload>> getdata();
+
+    @GET("/editworkload/{id}")
+    public Call<String> data(@Path("id") String id);
+
 }

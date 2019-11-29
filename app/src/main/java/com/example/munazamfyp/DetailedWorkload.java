@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.example.munazamfyp.Adapters.WorkloadDetailAdapter;
 import com.example.munazamfyp.DataModels.Data;
-import com.example.munazamfyp.DataModels.Example_item2;
+import com.example.munazamfyp.DataModels.WorkloadDetailModel;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -25,7 +25,7 @@ public class DetailedWorkload extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detailed_workload);
 
-        ArrayList<Example_item2> exampleList2 = new ArrayList<Example_item2>();
+        ArrayList<WorkloadDetailModel> exampleList2 = new ArrayList<WorkloadDetailModel>();
 
         dayy = findViewById(R.id.textView14);
 
@@ -70,13 +70,13 @@ public class DetailedWorkload extends AppCompatActivity {
                     ty = "e1";
                 }
                 System.out.println(Data.y.get(i).getCourse());
-                exampleList2.add(new Example_item2(ty, Data.y.get(i).getCourse(), Data.y.get(i).getType(), "Day Left: "+Data.y.get(i).getDayleft()));
+                exampleList2.add(new WorkloadDetailModel(ty, Data.y.get(i).getCourse(), Data.y.get(i).getType(), "Day Left: "+Data.y.get(i).getDayleft(),Data.y.get(i).getId()));
 
-                //exampleList2.add(new Example_item2("a", "20/10/2020", Data.y.get(i).getType(), Data.y.get(i).getCourse()));
+                //exampleList2.add(new WorkloadDetailModel("a", "20/10/2020", Data.y.get(i).getType(), Data.y.get(i).getCourse()));
             }
         }
 
-        //exampleList2.add(new Example_item2("a", "20/10/2020", "Assignmnet", "Human computer interaction"));
+        //exampleList2.add(new WorkloadDetailModel("a", "20/10/2020", "Assignmnet", "Human computer interaction"));
 
         switch (m) {
             case Calendar.SUNDAY:

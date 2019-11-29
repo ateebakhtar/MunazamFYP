@@ -2,6 +2,7 @@ package com.example.munazamfyp.Connections;
 
 import android.os.AsyncTask;
 import android.os.Handler;
+import android.os.Looper;
 
 import com.example.munazamfyp.DataModels.Data;
 import com.example.munazamfyp.Interfaces.LoginInterface;
@@ -61,6 +62,7 @@ public class LoginConnection extends AsyncTask<Void, Void, Void>
         } catch (IOException e) {
             e.printStackTrace();
         }
+        Looper.prepare();
         Handler h = new Handler();
         h.postDelayed(new Runnable() {
             @Override

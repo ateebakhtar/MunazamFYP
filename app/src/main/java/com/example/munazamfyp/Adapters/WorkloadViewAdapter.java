@@ -14,7 +14,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.munazamfyp.DataModels.Example_item;
+import com.example.munazamfyp.DataModels.WorkloadViewModel;
 import com.example.munazamfyp.DetailedWorkload;
 import com.example.munazamfyp.R;
 
@@ -22,7 +22,7 @@ import java.util.ArrayList;
 
 public class WorkloadViewAdapter extends RecyclerView.Adapter<WorkloadViewAdapter.ExampleViewHolder>
 {
-    private ArrayList<Example_item> mpaymentlist;
+    private ArrayList<WorkloadViewModel> mpaymentlist;
     private ExampleViewHolder holder;
     private int position;
     private Context mContext;
@@ -54,7 +54,7 @@ public class WorkloadViewAdapter extends RecyclerView.Adapter<WorkloadViewAdapte
             a1 = itemView.findViewById(R.id.imageView3);
             a2 = itemView.findViewById(R.id.imageView4);
             a3 = itemView.findViewById(R.id.imageView5);
-            ab=itemView.findViewById(R.id.editText2);
+            ab = itemView.findViewById(R.id.editText2);
 
 
         }
@@ -63,7 +63,7 @@ public class WorkloadViewAdapter extends RecyclerView.Adapter<WorkloadViewAdapte
 
 
     }
-    public WorkloadViewAdapter(ArrayList<Example_item> exampleItemArrayList, Context x)
+    public WorkloadViewAdapter(ArrayList<WorkloadViewModel> exampleItemArrayList, Context x)
     {
         mpaymentlist =exampleItemArrayList;
         mContext = x;
@@ -83,7 +83,7 @@ public class WorkloadViewAdapter extends RecyclerView.Adapter<WorkloadViewAdapte
     @Override
     public void onBindViewHolder(@NonNull ExampleViewHolder exampleViewHolder, final int i) {
 
-        Example_item currentItem=mpaymentlist.get(i);
+        WorkloadViewModel currentItem=mpaymentlist.get(i);
 
 
         exampleViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -99,6 +99,10 @@ public class WorkloadViewAdapter extends RecyclerView.Adapter<WorkloadViewAdapte
                 c.startActivity(i1);
             }
         });
+
+        exampleViewHolder.ab.setClickable(false);
+        exampleViewHolder.ab.setFocusable(false);
+
 
         if(currentItem.getImageResource1().equals("a0"))
         {

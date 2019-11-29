@@ -10,45 +10,39 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="104dp"
-        android:layout_marginBottom="101dp"
+        android:layout_marginStart="41dp"
+        android:layout_marginLeft="41dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginBottom="28dp"
         android:text="  Set Reminder"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="#0C0000"
+        android:textColor="@color/colorAccent"
         android:textSize="50sp"
+        android:textStyle="bold"
         android:typeface="sans"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/imageButton3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="234dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:dropDownWidth="match_parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.238"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textView4"
         android:layout_width="234dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="253dp"
-        android:text="      Select Type"
+        android:layout_marginBottom="18dp"
+        android:text="    Select Course"
+        android:textColor="@color/colorAccent"
         android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/spinner2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageButton5" />
 
     <ImageButton
         android:id="@+id/imageButton"
         style="@android:style/Widget.DeviceDefault.Light.ImageButton"
-        android:layout_width="229dp"
-        android:layout_height="137dp"
+        android:layout_width="69dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="67dp"
         android:background="#FAFAFA"
         android:onClick="OpenNext"
         android:tint="#0C40FC"
@@ -60,26 +54,81 @@
 
     <Spinner
         android:id="@+id/spinner2"
-        android:layout_width="234dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="28dp"
+        android:layout_width="226dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="50dp"
         android:spinnerMode="dropdown"
-        app:layout_constraintStart_toStartOf="@+id/textView4"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintBottom_toTopOf="@+id/imageButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="234dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="    Select Course"
-        android:textSize="24sp"
+    <ImageButton
+        android:id="@+id/imageButton6"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_marginEnd="88dp"
+        android:layout_marginRight="88dp"
+        android:elevation="14dp"
+        android:onClick="onquiz"
+        android:background="@drawable/buttonshadow"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.553"
+        app:layout_constraintStart_toEndOf="@+id/imageButton5"
+        app:layout_constraintTop_toTopOf="@+id/imageButton5"
+        app:srcCompat="@drawable/q" />
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_marginStart="81dp"
+        android:layout_marginLeft="81dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginRight="22dp"
+        android:layout_marginBottom="22dp"
+        android:elevation="14dp"
+        android:onClick="onassign"
+        android:background="@drawable/buttonshadow"
+        app:layout_constraintBottom_toTopOf="@+id/imageButton5"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:srcCompat="@drawable/a" />
+
+    <ImageButton
+        android:id="@+id/imageButton5"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_marginStart="81dp"
+        android:layout_marginLeft="81dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginRight="22dp"
+        android:layout_marginBottom="36dp"
+        android:elevation="14dp"
+        android:onClick="onproject"
+        android:background="@drawable/buttonshadow"
+        app:layout_constraintBottom_toTopOf="@+id/textView4"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton3"
+        app:srcCompat="@drawable/p" />
+
+    <ImageButton
+        android:id="@+id/imageButton4"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_marginEnd="88dp"
+        android:layout_marginRight="88dp"
+        android:elevation="14dp"
+        android:onClick="onexam"
+        android:background="@drawable/buttonshadow"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageButton3"
+        app:layout_constraintTop_toTopOf="@+id/imageButton3"
+        app:srcCompat="@drawable/e" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -31,7 +31,31 @@ public class SignUp extends AppCompatActivity {
         pass = findViewById(R.id.editText3);
         id = findViewById(R.id.editText4);
 
-        if(name.getText().toString().length() > 3 && pass.getText().toString().length() >8 && id.getText().toString().length() > 7)
+        System.out.println("l1 = "+name.getText().toString().length());
+        System.out.println("l2 = "+pass.getText().toString().length());
+        System.out.println("l3 = "+id.getText().toString().length());
+        String idd = id.getText().toString();
+        if(name.getText().toString().length() < 3 || name.getText().toString() == null)
+        {
+            name.setError("Please Enter a Valid Name of size 3 or more");
+            name.requestFocus();
+        }
+        else if(pass.getText().toString().length() < 8 || pass.getText().toString() == null)
+        {
+            pass.setError("Please Enter a Valid Password of size 8 or more");
+            pass.requestFocus();
+        }
+        else if(id.getText().toString().length() != 7 || id.getText().toString() == null)
+        {
+            id.setError("Please Enter a Valid ID");
+            id.requestFocus();
+        }
+        else if(!idd.startsWith("k") )
+        {
+            id.setError("Please enter id starting with k");
+            id.requestFocus();
+        }
+        else if(name.getText().toString().length() >= 3 && pass.getText().toString().length() >=8 && id.getText().toString().length() >= 7)
         {
             UserData toBeSent = new UserData();
             toBeSent.setName(name.getText().toString());
