@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.example.munazamfyp.Connections.GetReminderConnection;
+import com.example.munazamfyp.Connections.WorkloadConnection;
 import com.example.munazamfyp.DataModels.UserData;
 
 public class SplashScreen extends AppCompatActivity {
@@ -28,7 +30,9 @@ public class SplashScreen extends AppCompatActivity {
             public void run() {
                 if(nam != null)
                 {
-                    Intent intent=new Intent(SplashScreen.this,mainmenu.class);
+                    new WorkloadConnection(SplashScreen.this).execute();
+                    new GetReminderConnection(SplashScreen.this).execute();
+                    Intent intent=new Intent(SplashScreen.this,ContinueAs.class);
                     startActivity(intent);
                 }
                 else

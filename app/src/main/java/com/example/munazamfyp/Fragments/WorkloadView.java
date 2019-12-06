@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.munazamfyp.Adapters.WorkloadViewAdapter;
+import com.example.munazamfyp.Connections.WorkloadConnection;
 import com.example.munazamfyp.DataModels.Data;
 import com.example.munazamfyp.DataModels.WorkloadViewModel;
 import com.example.munazamfyp.DataModels.PageViewModel;
@@ -56,6 +57,7 @@ public class WorkloadView extends Fragment
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.activity_workload_view, container, false);
 
+        //new WorkloadConnection(root.getContext()).execute();
 
         ArrayList<WorkloadViewModel> exampleList = new ArrayList<>();
 

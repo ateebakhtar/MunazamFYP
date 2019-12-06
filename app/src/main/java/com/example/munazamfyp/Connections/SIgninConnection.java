@@ -1,5 +1,7 @@
 package com.example.munazamfyp.Connections;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.AsyncTask;
 
 import com.example.munazamfyp.DataModels.Data;
@@ -18,12 +20,26 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class SIgninConnection extends AsyncTask<Void, Void, Void>
 {
+    Context cx;
     SIgninConnection()
     {
 
     }
-    public SIgninConnection(String name, String pass)
+    ProgressDialog progressDialog;
+    @Override
+    protected void onPostExecute(Void v) {
+        // execution of result of Long time consuming operation
+        progressDialog.dismiss();
+
+    }
+
+    @Override
+    protected void onPreExecute() {
+        progressDialog = ProgressDialog.show(cx, "ProgressDialog", "Wait for "+ " seconds");
+    }
+    public SIgninConnection(String name, String pass,Context context)
     {
+        cx = context;
         this.name = name;
         this.pass = pass;
     }

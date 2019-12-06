@@ -12,8 +12,8 @@ import retrofit2.http.Path;
 public interface WorkloadInterface
 {
 
-    @GET("/workload")
-    public Call<ArrayList<Workload>> getdata();
+    @GET("/workload/{id}")
+    public Call<ArrayList<Workload>> getdata(@Path("id") String id);
 
     @GET("/editworkload/{id}")
     public Call<String> data(@Path("id") String id);

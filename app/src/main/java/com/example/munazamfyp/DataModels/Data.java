@@ -8,7 +8,7 @@ public class Data
 {
     public static String code;
     //holds the primary key id of the user
-    public static String status = "notok";
+    public static String status = "1";
 
     public static int user = 1;
     //valid login or not

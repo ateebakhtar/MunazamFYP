@@ -91,7 +91,7 @@ public class WorkloadDetailAdapter extends RecyclerView.Adapter<WorkloadDetailAd
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(final View view) {
                 Toast.makeText(view.getContext(), "Recycle Click" , Toast.LENGTH_SHORT).show();
 
                 DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
@@ -99,9 +99,9 @@ public class WorkloadDetailAdapter extends RecyclerView.Adapter<WorkloadDetailAd
                     public void onClick(DialogInterface dialog, int which) {
                         switch (which){
                             case DialogInterface.BUTTON_POSITIVE:
-                                UpdateWorkloadConnection OP = new UpdateWorkloadConnection(currentItem.getId());
+                                UpdateWorkloadConnection OP = new UpdateWorkloadConnection(currentItem.getId(),c);
                                 OP.execute();
-                                new WorkloadConnection().execute();
+                                new WorkloadConnection(view.getContext()).execute();
                                 Intent i = new Intent(c, MainActivity.class);
                                 c.startActivity(i);
                                 //Yes button clicked

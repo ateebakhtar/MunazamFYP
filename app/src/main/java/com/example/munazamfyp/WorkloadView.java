@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 
 import com.example.munazamfyp.Adapters.WorkloadViewAdapter;
+import com.example.munazamfyp.Connections.WorkloadConnection;
 import com.example.munazamfyp.DataModels.Data;
 import com.example.munazamfyp.DataModels.WorkloadViewModel;
 import com.example.munazamfyp.DataModels.Workload;
@@ -33,7 +34,7 @@ public class WorkloadView extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workload_view);
-
+        new WorkloadConnection(this).execute();
 
         ArrayList<WorkloadViewModel> exampleList = new ArrayList<>();
 

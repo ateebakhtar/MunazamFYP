@@ -1,7 +1,4 @@
-package com.example.munazamfyp.Fragments;
-
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
+package com.example.munazamfyp;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -9,72 +6,46 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.munazamfyp.Connections.EditAccountConnection;
 import com.example.munazamfyp.DataModels.Data;
-import com.example.munazamfyp.DataModels.WorkloadViewModel;
-import com.example.munazamfyp.DataModels.PageViewModel;
 import com.example.munazamfyp.DataModels.UserData;
-import com.example.munazamfyp.Login;
-import com.example.munazamfyp.R;
 
-import java.util.ArrayList;
-
-public class UserInformation extends Fragment {
-    ArrayList<WorkloadViewModel> list1 = new ArrayList<>();
-
-    UserInformation() {
-
-    }
-
-
-    public static com.example.munazamfyp.Fragments.UserInformation newInstance() {
-        return new com.example.munazamfyp.Fragments.UserInformation();
-    }
-
+public class UserInformationActivity extends AppCompatActivity
+{
 
     private Button B;
     private Button edit;
-    private PageViewModel pageViewModel;
-    View root;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
-        pageViewModel = ViewModelProviders.of(this).get(PageViewModel.class);
-        pageViewModel.setIndex("Reminder");
+        setContentView(R.layout.activity_user_information);
 
-
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        root = inflater.inflate(R.layout.activity_user_information, container, false);
-
-        edit = root.findViewById(R.id.button12);
+        edit = findViewById(R.id.button12);
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openedit(root);
+                openedit();
             }
         });
 
 
-        return root;
+
     }
 
-    public void openedit(final View view)
+    public void openedit()
     {
-        LayoutInflater li = LayoutInflater.from(view.getContext());
+        LayoutInflater li = LayoutInflater.from(this);
         View promptsView = li.inflate(R.layout.editaccountpromt, null);
 
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(view.getContext());
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setView(promptsView);
         alertDialogBuilder.setTitle("Edit Account");
         final EditText nam = promptsView.findViewById(R.id.editText9);
@@ -100,14 +71,14 @@ public class UserInformation extends Fragment {
                                 String pass1 = pass.getText().toString();
                                 if(name.length() >= 3 && pass1.length() >=8)
                                 {
-                                    System.out.println("values ---- "+Data.status);
-                                    //new EditAccountConnection(Data.status,name,pass1,UserInformation.this).execute();
-                                    Intent i = new Intent(view.getContext(),Login.class);
-                                    view.getContext().startActivity(i);
+                                    System.out.println("values ---- "+ Data.status);
+                                    new EditAccountConnection(Data.status,name,pass1,UserInformationActivity.this).execute();
+                                    Intent i = new Intent(UserInformationActivity.this,Login.class);
+                                    startActivity(i);
                                 }
                                 else
                                 {
-                                    Toast.makeText(view.getContext(), "Incorrect Length of Password or Username", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(UserInformationActivity.this, "Incorrect Length of Password or Username", Toast.LENGTH_SHORT).show();
                                 }
 
 
@@ -129,9 +100,5 @@ public class UserInformation extends Fragment {
 
 
     }
-    public void openlogin() {
-        Intent i = new Intent(root.getContext(), Login.class);
-        UserData.name = null;
-        startActivity(i);
-    }
+
 }

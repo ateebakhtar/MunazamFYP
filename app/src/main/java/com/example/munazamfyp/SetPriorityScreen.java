@@ -89,12 +89,12 @@ public class SetPriorityScreen extends AppCompatActivity {
                             //edit button clicked
                             //open enter reminder screen
                             //remove the item aswell
-                            SetReminderConnection x = new SetReminderConnection(ri,""+progressValue);
+                            SetReminderConnection x = new SetReminderConnection(ri,""+progressValue,SetPriorityScreen.this);
                             x.execute();
 
                             System.out.println("dadadada" + Data.RID);
 
-                            ReminderDeleteConnection s1 = new ReminderDeleteConnection(Data.RID);
+                            ReminderDeleteConnection s1 = new ReminderDeleteConnection(Data.RID,SetPriorityScreen.this);
                             s1.execute();
                             Data.RID = null;
 
@@ -105,7 +105,7 @@ public class SetPriorityScreen extends AppCompatActivity {
                         case DialogInterface.BUTTON_NEGATIVE:
                             //delete button clicked
                             //open reminder screen
-                            SetReminderConnection x1 = new SetReminderConnection(ri,""+progressValue);
+                            SetReminderConnection x1 = new SetReminderConnection(ri,""+progressValue,SetPriorityScreen.this);
                             x1.execute();
                             Data.RID = null;
 
@@ -123,10 +123,10 @@ public class SetPriorityScreen extends AppCompatActivity {
         }
         else
         {
-            SetReminderConnection x = new SetReminderConnection(ri,""+progressValue);
+            SetReminderConnection x = new SetReminderConnection(ri,""+progressValue,SetPriorityScreen.this);
             x.execute();
 
-            Intent i = new Intent(this,ReminderView.class);
+            Intent i = new Intent(this,mainmenu.class);
             startActivity(i);
         }
 

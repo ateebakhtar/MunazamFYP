@@ -114,7 +114,7 @@ public class ReminderAdapter extends RecyclerView.Adapter<ReminderAdapter.Exampl
                             case DialogInterface.BUTTON_NEGATIVE:
                                 //delete button clicked
                                 //open reminder screen
-                                new ReminderDeleteConnection(currentItem.getId()).execute();
+                                new ReminderDeleteConnection(currentItem.getId(),view.getContext()).execute();
                                 Intent i1 = new Intent(view.getContext(),MainActivity.class);
                                 view.getContext().startActivity(i1);
                                 break;

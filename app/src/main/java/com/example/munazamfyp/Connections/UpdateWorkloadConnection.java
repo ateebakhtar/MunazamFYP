@@ -1,5 +1,7 @@
 package com.example.munazamfyp.Connections;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.AsyncTask;
 
 import com.example.munazamfyp.Interfaces.GetDataService;
@@ -19,11 +21,25 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class UpdateWorkloadConnection extends AsyncTask<Void, Void, Void>
 {
     String id;
-    public UpdateWorkloadConnection(String id)
+    Context cx;
+
+    public UpdateWorkloadConnection(String id,Context context)
     {
+        cx = context;
         this.id = id;
     }
+    ProgressDialog progressDialog;
+    @Override
+    protected void onPostExecute(Void v) {
+        // execution of result of Long time consuming operation
+        progressDialog.dismiss();
 
+    }
+
+    @Override
+    protected void onPreExecute() {
+        progressDialog = ProgressDialog.show(cx, "ProgressDialog", "Wait for "+ " seconds");
+    }
 
     @Override
     protected Void doInBackground(Void... voids) {

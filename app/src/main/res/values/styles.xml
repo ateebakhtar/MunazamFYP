@@ -5,24 +5,33 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
+<!--        <item name="windowActionBar">false</item>-->
+<!--        <item name="windowNoTitle">true</item>-->
         <item name="colorButtonNormal">#2196f3</item>
+        <item name="actionBarTheme">@color/colorAccent</item>
+
+
         <item name="editTextColor">@color/colorAccent</item>
         <item name="android:background">@color/background</item>
     </style>
-    <style name="buttonstyle" >
-        <item name="android:textColor" >#ffffff</item>
+
+    <style name="buttonstyle">
+        <item name="android:textColor">#ffffff</item>
     </style>
+
     <style name="DialogTheme" parent="Theme.AppCompat.Light.Dialog">
         <item name="colorAccent">@color/colorAccent</item>
         <item name="textColorAlertDialogListItem">#ffffff</item>
     </style>
 
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
 
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-
-
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 
 </resources>

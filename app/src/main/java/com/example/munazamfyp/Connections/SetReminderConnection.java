@@ -1,5 +1,7 @@
 package com.example.munazamfyp.Connections;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.AsyncTask;
 
 import com.example.munazamfyp.DataModels.ReminderItem;
@@ -26,9 +28,22 @@ public class SetReminderConnection extends AsyncTask<Void, Void, Void>
 
     }
     ReminderItem RI;
+    Context cx;
+    ProgressDialog progressDialog;
+    @Override
+    protected void onPostExecute(Void v) {
+        // execution of result of Long time consuming operation
+        progressDialog.dismiss();
 
-    public SetReminderConnection(ReminderItem RI,String prio)
+    }
+
+    @Override
+    protected void onPreExecute() {
+        progressDialog = ProgressDialog.show(cx, "ProgressDialog", "Wait for "+ " seconds");
+    }
+    public SetReminderConnection(ReminderItem RI,String prio,Context context)
     {
+        cx = context;
         this.RI = RI;
         this.prio = prio;
     }

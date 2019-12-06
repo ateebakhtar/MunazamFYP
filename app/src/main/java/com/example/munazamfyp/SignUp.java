@@ -31,60 +31,83 @@ public class SignUp extends AppCompatActivity {
         pass = findViewById(R.id.editText3);
         id = findViewById(R.id.editText4);
 
-        System.out.println("l1 = "+name.getText().toString().length());
-        System.out.println("l2 = "+pass.getText().toString().length());
-        System.out.println("l3 = "+id.getText().toString().length());
-        String idd = id.getText().toString();
-        if(name.getText().toString().length() < 3 || name.getText().toString() == null)
-        {
-            name.setError("Please Enter a Valid Name of size 3 or more");
-            name.requestFocus();
-        }
-        else if(pass.getText().toString().length() < 8 || pass.getText().toString() == null)
-        {
-            pass.setError("Please Enter a Valid Password of size 8 or more");
-            pass.requestFocus();
-        }
-        else if(id.getText().toString().length() != 7 || id.getText().toString() == null)
-        {
-            id.setError("Please Enter a Valid ID");
-            id.requestFocus();
-        }
-        else if(!idd.startsWith("k") )
-        {
-            id.setError("Please enter id starting with k");
-            id.requestFocus();
-        }
-        else if(name.getText().toString().length() >= 3 && pass.getText().toString().length() >=8 && id.getText().toString().length() >= 7)
-        {
-            UserData toBeSent = new UserData();
-            toBeSent.setName(name.getText().toString());
-            toBeSent.setID(id.getText().toString());
-            toBeSent.setPassword(pass.getText().toString());
 
-            new LoginConnection(toBeSent).execute();
-            Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    if(Data.validid == "ok")
-                    {
-                        Intent i = new Intent(SignUp.this,EmailVerification.class);
-                        startActivity(i);        }
-                    else
-                    {
-                        Toast.makeText(SignUp.this, "ID already Exist's", Toast.LENGTH_SHORT).show();
-                    }
-                    finish();
-                }
-            },3000);
+        UserData toBeSent = new UserData();
+        toBeSent.setName(name.getText().toString());
+        toBeSent.setID(id.getText().toString());
+        toBeSent.setPassword(pass.getText().toString());
+
+        new LoginConnection(toBeSent,this).execute();
+//        Handler handler = new Handler();
+//        handler.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                if(Data.validid == "ok")
+//                {
+//                    Intent i = new Intent(SignUp.this,EmailVerification.class);
+//                    startActivity(i);        }
+//                else
+//                {
+//                    Toast.makeText(SignUp.this, "ID already Exist's", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        },3000);
 
 
-        }
-        else
-        {
-            Toast.makeText(this, "Incorrecnt Information is entered", Toast.LENGTH_SHORT).show();
-        }
+//        System.out.println("l1 = "+name.getText().toString().length());
+//        System.out.println("l2 = "+pass.getText().toString().length());
+//        System.out.println("l3 = "+id.getText().toString().length());
+//        String idd = id.getText().toString();
+//        if(name.getText().toString().length() < 3 || name.getText().toString() == null)
+//        {
+//            name.setError("Please Enter a Valid Name of size 3 or more");
+//            name.requestFocus();
+//        }
+//        else if(pass.getText().toString().length() < 8 || pass.getText().toString() == null)
+//        {
+//            pass.setError("Please Enter a Valid Password of size 8 or more");
+//            pass.requestFocus();
+//        }
+//        else if(id.getText().toString().length() != 7 || id.getText().toString() == null)
+//        {
+//            id.setError("Please Enter a Valid ID");
+//            id.requestFocus();
+//        }
+//        else if(!idd.startsWith("k") )
+//        {
+//            id.setError("Please enter id starting with k");
+//            id.requestFocus();
+//        }
+//        else if(name.getText().toString().length() >= 3 && pass.getText().toString().length() >=8 && id.getText().toString().length() >= 7)
+//        {
+//            UserData toBeSent = new UserData();
+//            toBeSent.setName(name.getText().toString());
+//            toBeSent.setID(id.getText().toString());
+//            toBeSent.setPassword(pass.getText().toString());
+//
+//            new LoginConnection(toBeSent).execute();
+//            Handler handler = new Handler();
+//            handler.postDelayed(new Runnable() {
+//                @Override
+//                public void run() {
+//                    if(Data.validid == "ok")
+//                    {
+//                        Intent i = new Intent(SignUp.this,EmailVerification.class);
+//                        startActivity(i);        }
+//                    else
+//                    {
+//                        Toast.makeText(SignUp.this, "ID already Exist's", Toast.LENGTH_SHORT).show();
+//                    }
+//                    finish();
+//                }
+//            },3000);
+//
+//
+//        }
+//        else
+//        {
+//            Toast.makeText(this, "Incorrecnt Information is entered", Toast.LENGTH_SHORT).show();
+//        }
 
 
 

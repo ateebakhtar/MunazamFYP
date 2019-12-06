@@ -1,7 +1,13 @@
 package com.example.munazamfyp.Connections;
 
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
+import android.widget.Toast;
 
+import com.example.munazamfyp.DataModels.Data;
+import com.example.munazamfyp.EmailVerification;
 import com.example.munazamfyp.Interfaces.LoginInterface;
 import com.example.munazamfyp.Interfaces.WorkloadInterface;
 import com.google.gson.Gson;
@@ -18,16 +24,28 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class EditAccountConnection extends AsyncTask<Void, Void, Void>
 {
-    public EditAccountConnection(String id, String name, String pass) {
+    public EditAccountConnection(String id, String name, String pass,Context context) {
         this.id = id;
         this.name = name;
         this.pass = pass;
+        this.cx = context;
     }
-
+    Context cx;
     String id;
     String name;
     String pass;
+    ProgressDialog progressDialog;
+    @Override
+    protected void onPostExecute(Void v) {
+        // execution of result of Long time consuming operation
+        progressDialog.dismiss();
 
+    }
+
+    @Override
+    protected void onPreExecute() {
+        progressDialog = ProgressDialog.show(cx, "ProgressDialog", "Wait for "+ " seconds");
+    }
 
     @Override
     protected Void doInBackground(Void... voids) {

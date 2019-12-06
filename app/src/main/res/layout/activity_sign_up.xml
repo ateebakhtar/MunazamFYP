@@ -10,54 +10,51 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="77dp"
+        android:layout_marginBottom="64dp"
         android:onClick="performLogin"
         android:text="Sign Up"
         android:textColor="@color/buttontext"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText4" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/editText2"
         android:layout_width="183dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="24dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="28dp"
         android:background="@drawable/editext"
         android:ems="10"
         android:gravity="center"
         android:hint="Name"
-        android:textColor="@color/colorAccent"
         android:inputType="textPersonName"
+        android:textColor="@color/colorAccent"
         android:textColorHint="@color/colorAccent"
         app:layout_constraintBottom_toTopOf="@+id/editText3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/editText4"
         android:layout_width="183dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="116dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="64dp"
         android:background="@drawable/editext"
         android:ems="10"
         android:gravity="center"
         android:hint="Student ID"
-        android:textColor="@color/colorAccent"
         android:inputType="text"
+        android:textColor="@color/colorAccent"
         android:textColorHint="@color/colorAccent"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText3" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/editText3"
         android:layout_width="183dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="22dp"
+        android:layout_height="46dp"
+        android:layout_marginBottom="32dp"
         android:background="@drawable/editext"
         android:ems="10"
         android:gravity="center"
@@ -67,20 +64,18 @@
         android:textColorHint="@color/colorAccent"
         app:layout_constraintBottom_toTopOf="@+id/editText4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="37dp"
+        android:layout_marginTop="27dp"
         android:gravity="center"
         android:text="Sign Up"
         android:textColor="@color/colorAccent"
         android:textSize="30dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/editText2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView7" />
@@ -90,8 +85,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="33dp"
-        android:layout_marginBottom="27dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
