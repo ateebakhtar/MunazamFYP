@@ -10,8 +10,8 @@
 
     <EditText
         android:id="@+id/editText7"
-        android:layout_width="228dp"
-        android:layout_height="0dp"
+        android:layout_width="254dp"
+        android:layout_height="58dp"
         android:layout_marginBottom="74dp"
         android:background="@drawable/editext"
         android:ems="10"
@@ -22,14 +22,15 @@
         android:textColorHint="@color/colorAccent"
         app:layout_constraintBottom_toTopOf="@+id/button4"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText6" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/editText6"
-        android:layout_width="231dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="40dp"
+        android:layout_width="254dp"
+        android:layout_height="58dp"
         android:background="@drawable/editext"
         android:ems="10"
         android:fontFamily="sans-serif-condensed"
@@ -37,10 +38,12 @@
         android:hint="Roll No: i.e   (k137894)"
         android:inputType="textPersonName|text"
         android:textColorHint="@color/colorAccent"
-        app:layout_constraintBottom_toTopOf="@+id/editText7"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.439" />
 
     <Button
         android:id="@+id/button4"
@@ -88,7 +91,8 @@
         android:layout_marginStart="248dp"
         android:layout_marginLeft="248dp"
         android:layout_marginTop="24dp"
-        android:text="forgot password"
+        android:onClick="forgotpassword"
+        android:text="Forgot password"
         android:textColor="@color/colorAccent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

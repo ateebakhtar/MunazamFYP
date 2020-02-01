@@ -7,13 +7,16 @@ import androidx.fragment.app.DialogFragment;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.munazamfyp.Connections.GetCourses;
 import com.example.munazamfyp.Connections.SetReminderConnection;
+import com.example.munazamfyp.DataModels.Data;
 import com.example.munazamfyp.DataModels.ReminderData;
 import com.example.munazamfyp.DataModels.ReminderItem;
 import com.example.munazamfyp.DataModels.date;
@@ -51,10 +54,34 @@ public class EnterReminder extends AppCompatActivity {
 //        ArrayAdapter adapter = new ArrayAdapter(getApplicationContext(),android.R.layout.simple_list_item_1 ,objects);
 //        spin.setAdapter(adapter);
 
+        new GetCourses(this,"asd","1").execute();
+
         spin1 = (Spinner) findViewById(R.id.spinner2);
         String[] objects1 = { "Applied Physics", "Calculus and Analytical Geometry", "English Composition and Comprehension", "Introduction to Information and Communication Technologies", "Islamic and Religious Studies"};
-        ArrayAdapter adapter1 = new ArrayAdapter(getApplicationContext(),android.R.layout.simple_list_item_1 ,objects1   );
-        spin1.setAdapter(adapter1);
+
+        Handler handler =new Handler();
+
+
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println(":in the handler");
+                System.out.println("sideewgqg "+Data.courses.size());
+                final String[] obj = new String[Data.courses.size()];
+                for(int i=0;i<Data.courses.size();i++)
+                {
+                    System.out.println("Loopingg");
+                    obj[i] = Data.courses.get(i).getName();
+                    System.out.println("wtf "+obj[i]);
+                }
+
+                // System.out.println("Data"+Data.courses.get(2).getName());
+                ArrayAdapter adapter1 = new ArrayAdapter(getApplicationContext(),android.R.layout.simple_list_item_1 ,obj );
+
+                spin1.setAdapter(adapter1);
+            }
+        },1000);
+
     }
     float ele = 35;
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)

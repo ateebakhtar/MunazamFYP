@@ -19,4 +19,10 @@ public class Data
     public static ArrayList<ReminderModel> x;
     //arraylist from workload
     public static ArrayList<Workload> y;
+    //semester
+    public static String semester = "1";
+    //the selected course list
+    public static ArrayList<CourseModel> courses = new ArrayList<CourseModel>();
+    //list of course names and section
+    public static ArrayList<CoursesModel> x1 = new ArrayList<CoursesModel>();
 }

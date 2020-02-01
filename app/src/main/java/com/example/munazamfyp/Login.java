@@ -24,6 +24,13 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
     }
+
+    public void forgotpassword(View view)
+    {
+        Intent i = new Intent(this,ForgotPassword.class);
+        startActivity(i);
+    }
+
     public void loginAction(View view)
     {
         final EditText name = findViewById(R.id.editText6);
@@ -71,6 +78,11 @@ public class Login extends AppCompatActivity {
 
         }
 
+    }
+    public void forogtpass(View view)
+    {
+        Toast.makeText(this, "Forgot Password" +
+                "", Toast.LENGTH_SHORT).show();
     }
     public void opencreateaccount(View view)
     {

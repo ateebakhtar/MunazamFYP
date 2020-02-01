@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "117081899073",
+    "firebase_url": "https://munazamfyp.firebaseio.com",
+    "project_id": "munazamfyp",
+    "storage_bucket": "munazamfyp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:117081899073:android:3d3a10ed31a11cae89c6c0",
+        "android_client_info": {
+          "package_name": "com.example.munazamfyp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "117081899073-abo3ro51vclkm73vg7sdlg56g1go5a9r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.munazamfyp",
+            "certificate_hash": "d2be56b74991d2884d9d64b3a240e9331b0aa560"
+          }
+        },
+        {
+          "client_id": "117081899073-lv1otpsggaipfbk9k6s1sklva0snpbks.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZ07Ea1hgUV6YrGcqPgg4aodrK3FYxF4c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "117081899073-lv1otpsggaipfbk9k6s1sklva0snpbks.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

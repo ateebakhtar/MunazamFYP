@@ -2,22 +2,19 @@ package com.example.munazamfyp.Connections;
 
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.os.AsyncTask;
-import android.os.Handler;
-import android.os.Looper;
-import android.widget.Toast;
 
+import com.example.munazamfyp.DataModels.CourseModel;
 import com.example.munazamfyp.DataModels.Data;
-import com.example.munazamfyp.DataModels.time;
-import com.example.munazamfyp.EmailVerification;
-import com.example.munazamfyp.Interfaces.LoginInterface;
 import com.example.munazamfyp.DataModels.UserData;
-import com.example.munazamfyp.SignUp;
+import com.example.munazamfyp.Interfaces.LoginInterface;
+import com.example.munazamfyp.Interfaces.ReminderInterface;
+import com.example.munazamfyp.SplashScreen;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -26,18 +23,22 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class LoginConnection extends AsyncTask<Void, Void, Void> {
+public class GetCourses extends AsyncTask<Void, Void, Void>
+{
     ProgressDialog progressDialog;
     UserData UD;
     Context cx;
 
-    LoginConnection() {
+    String name;
+    String sec;
+    GetCourses() {
 
     }
 
-    public LoginConnection(UserData ud, Context context) {
+    public GetCourses(Context context, String name, String section) {
         cx = context;
-        UD = ud;
+        this.name = name;
+        sec = section;
     }
 
     @Override
@@ -66,16 +67,18 @@ public class LoginConnection extends AsyncTask<Void, Void, Void> {
                 .build();
 
 
-        final LoginInterface GDS = m.create(LoginInterface.class);
+        final ReminderInterface GDS = m.create(ReminderInterface.class);
 
-        final Response<String>[] x = new Response[]{null};
-        final Call<String>[] call = new Call[]{GDS.Get(UD.getID(), UD.getName(), UD.getPassword(),UD.getSemester())};
+        final Response<ArrayList<CourseModel>>[] x = new Response[]{null};
+        final Call<ArrayList<CourseModel>>[] call = new Call[]{GDS.getcourses("1")};
 
         try {
             x[0] = call[0].execute();
             System.out.println(x[0].body());
-            Data.validid = x[0].body();
-            System.out.println("somedata" + Data.validid);
+            //Data.semester = x[0].body();
+            //String m123  = x[0].body();
+            Data.courses = x[0].body();
+            //System.out.println("somedata" + m123);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -88,14 +91,6 @@ public class LoginConnection extends AsyncTask<Void, Void, Void> {
         // execution of result of Long time consuming operation
         progressDialog.dismiss();
 
-        if (Data.validid.equals("ok")) {
-            Data.RID = UD.getID();
-            Intent i = new Intent(cx, EmailVerification.class);
-            cx.startActivity(i);
-        }
-        else
-        {
-              Toast.makeText(cx, "ID already Exist's", Toast.LENGTH_SHORT).show();
-        }
+
     }
 }

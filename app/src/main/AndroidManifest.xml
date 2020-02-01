@@ -14,24 +14,45 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".navigation"></activity>
+        <activity android:name=".ForgotPassword"></activity>
+
+        <service
+            android:name=".ReminderService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity android:name=".navigation" />
         <activity android:name=".DetailedWorkload" />
         <activity android:name=".SetPriorityScreen" />
         <activity android:name=".DataTimeScreen" />
+        <activity android:name=".SelectCourses" />
+        <activity android:name=".SelectCourses2"/>
         <activity android:name=".Fragments.UserInformation" />
         <activity android:name=".UserInformationActivity" />
-        <activity android:name=".ContinueAs" />
-        <activity android:name=".SplashScreen"
-            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".ContinueAs"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SplashScreen"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".mainmenu" />
         <activity android:name=".WorkloadView" />
         <activity android:name=".EnterWorkloadata" />
         <activity android:name=".EnterReminder" />
         <activity android:name=".ReminderView" />
-        <activity android:name=".Login"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".EmailVerification" />
-        <activity android:name=".SignUp" />
+        <activity
+            android:name=".Login"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".EmailVerification"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SignUp"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -6,6 +6,15 @@ public class UserData
     String ID;
     public static String password;
 
+    public static String getSemester() {
+        return semester;
+    }
+
+    public static void setSemester(String semester) {
+        UserData.semester = semester;
+    }
+
+    public static String semester;
     public String getName() {
         return name;
     }

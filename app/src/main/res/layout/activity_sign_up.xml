@@ -19,26 +19,10 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editText2"
-        android:layout_width="183dp"
-        android:layout_height="45dp"
-        android:layout_marginBottom="28dp"
-        android:background="@drawable/editext"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="Name"
-        android:inputType="textPersonName"
-        android:textColor="@color/colorAccent"
-        android:textColorHint="@color/colorAccent"
-        app:layout_constraintBottom_toTopOf="@+id/editText3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
         android:id="@+id/editText4"
         android:layout_width="183dp"
         android:layout_height="45dp"
-        android:layout_marginBottom="64dp"
+        android:layout_marginBottom="76dp"
         android:background="@drawable/editext"
         android:ems="10"
         android:gravity="center"
@@ -51,10 +35,42 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
+        android:id="@+id/editText2"
+        android:layout_width="183dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/editext"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Name"
+        android:inputType="textPersonName"
+        android:textColor="@color/colorAccent"
+        android:textColorHint="@color/colorAccent"
+        app:layout_constraintBottom_toTopOf="@+id/editText3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/editText12"
+        android:layout_width="183dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/editext"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Semester"
+        android:inputType="number"
+        android:textColor="@color/colorAccent"
+        android:textColorHint="@color/colorAccent"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
         android:id="@+id/editText3"
         android:layout_width="183dp"
         android:layout_height="46dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="248dp"
         android:background="@drawable/editext"
         android:ems="10"
         android:gravity="center"
@@ -62,7 +78,7 @@
         android:inputType="textPersonName"
         android:textColor="@color/colorAccent"
         android:textColorHint="@color/colorAccent"
-        app:layout_constraintBottom_toTopOf="@+id/editText4"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -76,9 +92,11 @@
         android:textColor="@color/colorAccent"
         android:textSize="30dp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/editText2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView7"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/imageView7"

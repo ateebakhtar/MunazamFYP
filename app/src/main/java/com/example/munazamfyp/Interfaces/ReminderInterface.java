@@ -1,4 +1,5 @@
 package com.example.munazamfyp.Interfaces;
+import com.example.munazamfyp.DataModels.CourseModel;
 import com.example.munazamfyp.DataModels.ReminderItem;
 import com.example.munazamfyp.DataModels.ReminderModel;
 
@@ -19,4 +20,10 @@ public interface ReminderInterface
 
     @GET("/deletereminder/{id}")
     public Call<String> datad(@Path("id") String id);
+
+    @GET("/getcourses/{id}")
+    public Call<ArrayList<CourseModel>> getcourses(@Path("id") String id);
+
+    @GET("/setcourses/{name}/{section}/{usrid}")
+    public Call<String> setcourses(@Path("name") String name,@Path("section") String section,@Path("usrid") String usrid);
 }

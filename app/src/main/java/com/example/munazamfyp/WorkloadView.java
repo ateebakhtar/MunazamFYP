@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import com.example.munazamfyp.Adapters.WorkloadViewAdapter;
 import com.example.munazamfyp.Connections.WorkloadConnection;
@@ -23,7 +24,6 @@ public class WorkloadView extends AppCompatActivity {
     ArrayList<WorkloadViewModel> list1 = new ArrayList<>();
 
 
-
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -35,94 +35,89 @@ public class WorkloadView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workload_view);
         new WorkloadConnection(this).execute();
+        if (y == null) {
+            TextView error = findViewById(R.id.textView9);
+            error.setText("The List is empty");
+        } else {
+            ArrayList<WorkloadViewModel> exampleList = new ArrayList<>();
 
-        ArrayList<WorkloadViewModel> exampleList = new ArrayList<>();
+            mRecyclerView = findViewById(R.id.recyclerView);
+            mRecyclerView.setHasFixedSize(true);
+            mLayoutManager = new LinearLayoutManager(this);
+            mAdapter = new WorkloadViewAdapter(exampleList, this);
+            mRecyclerView.setLayoutManager(mLayoutManager);
+            mRecyclerView.setAdapter(mAdapter);
 
-        mRecyclerView=findViewById(R.id.recyclerView);
-        mRecyclerView.setHasFixedSize(true);
-        mLayoutManager=new LinearLayoutManager(this);
-        mAdapter=new WorkloadViewAdapter(exampleList,this);
-        mRecyclerView.setLayoutManager(mLayoutManager);
-        mRecyclerView.setAdapter(mAdapter);
-
-        Date currentTime = Calendar.getInstance().getTime();
+            Date currentTime = Calendar.getInstance().getTime();
 //        int m = Calendar.getInstance().get(Calendar.DAY_OF_WEEK);
 
-        //LocalDate current = LocalDate.now(Clock.system());
-        int[] task = new int[4];
-        task = new int[]{0, 0, 0, 0};
-        Workload wl = new Workload();
-        wl = Data.y.get(5);
-        int m = Calendar.getInstance().get(Calendar.DAY_OF_WEEK);
-        System.out.println(wl.getDay());
-        for(int i=0;i<7;i++)
-        {
+            //LocalDate current = LocalDate.now(Clock.system());
+            int[] task = new int[4];
             task = new int[]{0, 0, 0, 0};
+            Workload wl = new Workload();
+            wl = Data.y.get(5);
+            int m = Calendar.getInstance().get(Calendar.DAY_OF_WEEK);
+            System.out.println(wl.getDay());
+            for (int i = 0; i < 7; i++) {
+                task = new int[]{0, 0, 0, 0};
 
-            for(int j=0;j< y.size();j++)
-            {
-                if(y.get(j).getType().equals("Assignment") && y.get(j).getDay().equals(""+i))
-                {
-                    task[0] = 1;
+                for (int j = 0; j < y.size(); j++) {
+                    if (y.get(j).getType().equals("Assignment") && y.get(j).getDay().equals("" + i)) {
+                        task[0] = 1;
+                    } else if (y.get(j).getType().equals("Project") && y.get(j).getDay().equals("" + i)) {
+                        task[1] = 1;
+                    } else if (y.get(j).getType().equals("Quiz") && y.get(j).getDay().equals("" + i)) {
+                        task[2] = 1;
+                    } else if (y.get(j).getType().equals("Midterm") && y.get(j).getDay().equals("" + i)) {
+                        task[3] = 1;
+                    }
                 }
-                else if(y.get(j).getType().equals("Project")&& y.get(j).getDay().equals(""+i))
-                {
-                    task[1] = 1;
+                switch (m) {
+                    case Calendar.SUNDAY:
+                        list1.add(new WorkloadViewModel("a" + task[0], "q" + task[2], "p" + task[1], "e" + task[3], "Sunday"));
+                        // Current day is Sunday
+                        break;
+                    case Calendar.WEDNESDAY:
+                        list1.add(new WorkloadViewModel("a" + task[0], "q" + task[2], "p" + task[1], "e" + task[3], "Wednesday"));
+                        // Current day is Monday
+                        break;
+                    case Calendar.THURSDAY:
+                        list1.add(new WorkloadViewModel("a" + task[0], "q" + task[2], "p" + task[1], "e" + task[3], "Thursday"));
+                        // Current day is Monday
+                        break;
+                    case Calendar.FRIDAY:
+                        list1.add(new WorkloadViewModel("a" + task[0], "q" + task[2], "p" + task[1], "e" + task[3], "Friday"));
+                        // Current day is Monday
+                        break;
+                    case Calendar.MONDAY:
+                        list1.add(new WorkloadViewModel("a" + task[0], "q" + task[2], "p" + task[1], "e" + task[3], "Monday"));
+                        // Current day is Monday
+                        break;
+                    case Calendar.TUESDAY:
+                        list1.add(new WorkloadViewModel("a" + task[0], "q" + task[2], "p" + task[1], "e" + task[3], "Tuesday"));
+                        // etc.
+                        break;
+                    case Calendar.SATURDAY:
+                        list1.add(new WorkloadViewModel("a" + task[0], "q" + task[2], "p" + task[1], "e" + task[3], "Saturday"));
+                        // Current day is Monday
+                        break;
                 }
-                else if(y.get(j).getType().equals("Quiz")&& y.get(j).getDay().equals(""+i))
-                {
-                    task[2] = 1;
+                m++;
+                System.out.println("value" + m);
+                if (m == 8) {
+                    m = 1;
                 }
-                else if(y.get(j).getType().equals("Midterm")&& y.get(j).getDay().equals(""+i))
-                {
-                    task[3] = 1;
-                }
+                //list1.add(new WorkloadViewModel("a1","q1","p","e1","7/10/20"));
             }
-            switch (m) {
-                case Calendar.SUNDAY:
-                    list1.add(new WorkloadViewModel("a"+task[0],"q"+task[2],"p"+task[1],"e"+task[3],"Sunday"));
-                    // Current day is Sunday
-                    break;
-                case Calendar.WEDNESDAY:
-                    list1.add(new WorkloadViewModel("a"+task[0],"q"+task[2],"p"+task[1],"e"+task[3],"Wednesday"));
-                    // Current day is Monday
-                    break;
-                case Calendar.THURSDAY:
-                    list1.add(new WorkloadViewModel("a"+task[0],"q"+task[2],"p"+task[1],"e"+task[3],"Thursday"));
-                    // Current day is Monday
-                    break;
-                case Calendar.FRIDAY:
-                    list1.add(new WorkloadViewModel("a"+task[0],"q"+task[2],"p"+task[1],"e"+task[3],"Friday"));
-                    // Current day is Monday
-                    break;
-                case Calendar.MONDAY:
-                    list1.add(new WorkloadViewModel("a"+task[0],"q"+task[2],"p"+task[1],"e"+task[3],"Monday"));
-                    // Current day is Monday
-                    break;
-                case Calendar.TUESDAY:
-                    list1.add(new WorkloadViewModel("a"+task[0],"q"+task[2],"p"+task[1],"e"+task[3],"Tuesday"));
-                    // etc.
-                    break;
-                case Calendar.SATURDAY:
-                    list1.add(new WorkloadViewModel("a"+task[0],"q"+task[2],"p"+task[1],"e"+task[3],"Saturday"));
-                    // Current day is Monday
-                    break;
-            }
-            m++;
-            System.out.println("value"+m);
-            if(m == 8)
-            {
-                m = 1;
-            }
-            //list1.add(new WorkloadViewModel("a1","q1","p","e1","7/10/20"));
+
+            //list1.add(new WorkloadViewModel("a","q1","p1","e1","7/10/20"));
+            //list1.add(new WorkloadViewModel("a1","q","p1","e","7/10/20"));
+
+
+            mAdapter = new WorkloadViewAdapter(list1, this);
+            mRecyclerView.setLayoutManager(mLayoutManager);
+            mRecyclerView.setAdapter(mAdapter);
+
         }
-
-        //list1.add(new WorkloadViewModel("a","q1","p1","e1","7/10/20"));
-        //list1.add(new WorkloadViewModel("a1","q","p1","e","7/10/20"));
-
-
-        mAdapter=new WorkloadViewAdapter(list1,this);
-        mRecyclerView.setLayoutManager(mLayoutManager);
-        mRecyclerView.setAdapter(mAdapter);
     }
 }

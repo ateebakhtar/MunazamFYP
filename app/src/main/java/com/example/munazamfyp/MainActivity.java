@@ -22,6 +22,7 @@ import android.widget.Toast;
 import com.example.munazamfyp.Connections.GetReminderConnection;
 import com.example.munazamfyp.Connections.WorkloadConnection;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.io.IOException;
 import java.util.List;
@@ -90,18 +91,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        String token = FirebaseInstanceId.getInstance().getToken();
+        System.out.println(token);
+
         t1 = findViewById(R.id.spin1);
         t2 = findViewById(R.id.spin2);
         String[] objects1 = {"1","2","3"};
         ArrayAdapter adapter1 = new ArrayAdapter(getApplicationContext(),android.R.layout.simple_list_item_1 ,objects1   );
         t1.setAdapter(adapter1);
-
-
-
-
-
-
-
 
         Intent i = new Intent(this,SplashScreen.class);
         startActivity(i);
