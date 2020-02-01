@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
@@ -21,6 +22,8 @@ import com.example.munazamfyp.DataModels.PageViewModel;
 import com.example.munazamfyp.R;
 
 import java.util.ArrayList;
+
+import static com.example.munazamfyp.DataModels.Data.y;
 
 public class ReminderView extends Fragment
 {
@@ -59,6 +62,12 @@ public class ReminderView extends Fragment
         root = inflater.inflate(R.layout.activity_reminder_view, container, false);
 
         B = root.findViewById(R.id.imageButton2);
+
+        if (Data.x == null) {
+            TextView error = root.findViewById(R.id.textView12);
+            error.setText("The List is empty");
+            return null;
+        }
 
         ArrayList<ReminderModel> example_items= new ArrayList<>();
         mRecyclerView = root.findViewById(R.id.recyclerView);

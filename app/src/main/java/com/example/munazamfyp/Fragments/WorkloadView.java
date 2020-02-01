@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
@@ -61,6 +62,12 @@ public class WorkloadView extends Fragment
 
         ArrayList<WorkloadViewModel> exampleList = new ArrayList<>();
 
+        if (Data.y == null) {
+            TextView error = root.findViewById(R.id.textView9);
+            error.setText("The List is empty");
+            return null;
+        }
+
         mRecyclerView=root.findViewById(R.id.recyclerView);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager=new LinearLayoutManager(root.getContext());
@@ -71,9 +78,9 @@ public class WorkloadView extends Fragment
         int[] task = new int[4];
         task = new int[]{0, 0, 0, 0};
         Workload wl = new Workload();
-        wl = Data.y.get(5);
+        //wl = Data.y.get(5);
         int m = Calendar.getInstance().get(Calendar.DAY_OF_WEEK);
-        System.out.println(wl.getDay());
+        //System.out.println(wl.getDay());
         for(int i=0;i<7;i++)
         {
             task = new int[]{0, 0, 0, 0};
