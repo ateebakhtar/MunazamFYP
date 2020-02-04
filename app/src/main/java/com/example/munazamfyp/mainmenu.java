@@ -31,11 +31,6 @@ public class mainmenu extends AppCompatActivity {
         setContentView(R.layout.activity_mainmenu);
         Handler handler =new Handler();
 
-
-
-
-
-
         dl = (DrawerLayout)findViewById(R.id.navigation);
         t = new ActionBarDrawerToggle(this, dl,R.string.Open, R.string.Close);
 

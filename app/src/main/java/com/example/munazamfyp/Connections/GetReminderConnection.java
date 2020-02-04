@@ -58,7 +58,7 @@ public class GetReminderConnection extends AsyncTask<Void, Void, Void>
 
 
         Retrofit m = new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:8080/")
+                .baseUrl(Data.ip)
                 //.baseUrl("http://192.168.100.6:8080/")
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create(gson))

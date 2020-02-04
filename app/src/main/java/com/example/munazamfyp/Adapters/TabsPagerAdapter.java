@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
+import com.example.munazamfyp.Fragments.MeetingView;
 import com.example.munazamfyp.Fragments.ReminderView;
 import com.example.munazamfyp.Fragments.UserInformation;
 import com.example.munazamfyp.Fragments.WorkloadView;
@@ -33,7 +34,7 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
             case 1:
                 return ReminderView.newInstance();
             case 2:
-                return UserInformation.newInstance();
+                return MeetingView.newInstance();
             default:
                 return ReminderView.newInstance();
         }

@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 
+import com.example.munazamfyp.DataModels.Data;
 import com.example.munazamfyp.DataModels.ReminderItem;
 import com.example.munazamfyp.Interfaces.GetDataService;
 import com.example.munazamfyp.Interfaces.ReminderInterface;
@@ -63,7 +64,7 @@ public class SetReminderConnection extends AsyncTask<Void, Void, Void>
 
 
         Retrofit m = new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:8080/")
+                .baseUrl(Data.ip)
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();

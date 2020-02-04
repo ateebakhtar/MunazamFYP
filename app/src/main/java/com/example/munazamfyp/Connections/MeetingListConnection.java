@@ -5,13 +5,13 @@ import android.content.Context;
 import android.os.AsyncTask;
 
 import com.example.munazamfyp.DataModels.Data;
-import com.example.munazamfyp.DataModels.UserData;
-import com.example.munazamfyp.Interfaces.LoginInterface;
-import com.example.munazamfyp.Interfaces.ReminderInterface;
+import com.example.munazamfyp.DataModels.MeetingModel;
+import com.example.munazamfyp.Interfaces.MeetingInterface;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -20,32 +20,32 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class ForgotPassConnection extends AsyncTask<Void, Void, Void>
+public class MeetingListConnection extends AsyncTask<Void,Void,Void>
 {
-    ProgressDialog progressDialog;
-    UserData UD;
+    public MeetingListConnection( Context context) {
+        this.cx = context;
+    }
+    MeetingModel mm;
     Context cx;
 
-    String id;
-    String sec;
-    ForgotPassConnection() {
+    ProgressDialog progressDialog;
 
-    }
+    @Override
+    protected void onPostExecute(Void v) {
+        // execution of result of Long time consuming operation
+        progressDialog.dismiss();
 
-    public ForgotPassConnection(Context context, String id) {
-        cx = context;
-        this.id = id;
     }
 
     @Override
     protected void onPreExecute() {
-        progressDialog = ProgressDialog.show(cx,
-                "ProgressDialog",
-                "Wait for "+ " seconds");
+        progressDialog = ProgressDialog.show(cx, "ProgressDialog", "Wait for "+ " seconds");
     }
 
     @Override
     protected Void doInBackground(Void... voids) {
+
+
 
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
@@ -61,31 +61,26 @@ public class ForgotPassConnection extends AsyncTask<Void, Void, Void>
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
+        MeetingInterface GDS = m.create(MeetingInterface.class);
 
-
-        final LoginInterface GDS = m.create(LoginInterface.class);
-
-        final Response<String>[] x = new Response[]{null};
-        final Call<String>[] call = new Call[]{GDS.forgotpass(id)};
-
-        try {
-            x[0] = call[0].execute();
-            System.out.println(x[0].body());
-            //Data.semester = x[0].body();
-            String m123  = x[0].body();
-            System.out.println("somedata" + m123);
-        } catch (IOException e) {
+        //JsonReader.setLenient(true);
+        //@GET("/meeting/{course}/{name}/{id}/{venue}/{time}/{date}/{capacity}/{topic}/{description}")
+        //hello
+        Call<ArrayList<MeetingModel>> call = GDS.getmeeetinglist();
+        //Call<String> call = GDS.Get(id);
+        Response<ArrayList<MeetingModel>> x = null;
+        try
+        {
+            x = call.execute();
+            System.out.println(x);
+        }
+        catch (IOException e)
+        {
             e.printStackTrace();
         }
+
+
         return null;
     }
 
-
-    @Override
-    protected void onPostExecute(Void v) {
-        // execution of result of Long time consuming operation
-        progressDialog.dismiss();
-
-
-    }
 }

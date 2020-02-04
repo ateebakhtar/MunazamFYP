@@ -62,7 +62,7 @@ public class EditAccountConnection extends AsyncTask<Void, Void, Void>
 
 
         Retrofit m = new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:8080/")
+                .baseUrl(Data.ip)
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
