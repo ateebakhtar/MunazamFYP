@@ -14,7 +14,10 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ForgotPassword"></activity>
+        <activity android:name=".AddMeeting2"></activity>
+        <activity android:name=".AddMeeting1" />
+        <activity android:name=".AddMeeting" />
+        <activity android:name=".ForgotPassword" />
 
         <service
             android:name=".ReminderService"
@@ -30,7 +33,7 @@
         <activity android:name=".SetPriorityScreen" />
         <activity android:name=".DataTimeScreen" />
         <activity android:name=".SelectCourses" />
-        <activity android:name=".SelectCourses2"/>
+        <activity android:name=".SelectCourses2" />
         <activity android:name=".Fragments.UserInformation" />
         <activity android:name=".UserInformationActivity" />
         <activity
