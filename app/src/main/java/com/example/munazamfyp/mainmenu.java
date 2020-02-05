@@ -46,6 +46,16 @@ public class mainmenu extends AppCompatActivity {
                 int id = item.getItemId();
                 switch(id)
                 {
+                    case R.id.joined:
+                        Toast.makeText(mainmenu.this, "Joined Meetins", Toast.LENGTH_SHORT).show();
+                        Intent i4 = new Intent(mainmenu.this,JoinedMeetinList.class);
+                        startActivity(i4);
+                        break;
+                    case R.id.mymeeting:
+                        Toast.makeText(mainmenu.this, "My hosted meeteings", Toast.LENGTH_SHORT).show();
+                        Intent i5 = new Intent(mainmenu.this,MyMeetingList.class);
+                        startActivity(i5);
+                        break;
                     case R.id.account:
                         Toast.makeText(mainmenu.this, "My Account",Toast.LENGTH_SHORT).show();
                         Intent i  = new Intent(mainmenu.this,UserInformationActivity.class);

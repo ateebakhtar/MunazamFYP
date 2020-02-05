@@ -4,10 +4,11 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 
-import com.example.munazamfyp.DataModels.AttendeesModel;
 import com.example.munazamfyp.DataModels.Data;
 import com.example.munazamfyp.DataModels.MeetingModel;
+import com.example.munazamfyp.DataModels.ReminderModel;
 import com.example.munazamfyp.Interfaces.MeetingInterface;
+import com.example.munazamfyp.Interfaces.ReminderInterface;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -21,16 +22,15 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class AttendeesListConnection extends AsyncTask<Void,Void,Void>
+public class GetMyMeetingConnection extends AsyncTask<Void,Void,Void>
 {
-    public AttendeesListConnection( Context context) {
-        this.cx = context;
-    }
-    MeetingModel mm;
     Context cx;
+    public GetMyMeetingConnection(Context context)
+    {
+        cx = context;
+    }
 
     ProgressDialog progressDialog;
-
     @Override
     protected void onPostExecute(Void v) {
         // execution of result of Long time consuming operation
@@ -42,6 +42,7 @@ public class AttendeesListConnection extends AsyncTask<Void,Void,Void>
     protected void onPreExecute() {
         progressDialog = ProgressDialog.show(cx, "ProgressDialog", "Wait for "+ " seconds");
     }
+
 
     @Override
     protected Void doInBackground(Void... voids) {
@@ -59,28 +60,22 @@ public class AttendeesListConnection extends AsyncTask<Void,Void,Void>
 
         Retrofit m = new Retrofit.Builder()
                 .baseUrl(Data.ip)
+                //.baseUrl("http://192.168.100.6:8080/")
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
         MeetingInterface GDS = m.create(MeetingInterface.class);
-
         //JsonReader.setLenient(true);
-        //@GET("/meeting/{course}/{name}/{id}/{venue}/{time}/{date}/{capacity}/{topic}/{description}")
-        //hello
-        String id = ""+1;
-        Call<ArrayList<AttendeesModel>> call = GDS.getattendees(id);
+        Call<ArrayList<MeetingModel>> call = GDS.getmymeeetinglist("k173848");
         //Call<String> call = GDS.Get(id);
-        Response<ArrayList<AttendeesModel>> x = null;
-        try
-        {
+        Response<ArrayList<MeetingModel>> x = null;
+        try {
             x = call.execute();
             System.out.println(x);
-            Data.m = x.body();
-        }
-        catch (IOException e)
-        {
+        } catch (IOException e) {
             e.printStackTrace();
         }
+        //Data.x = x.body();
 
         return null;
     }

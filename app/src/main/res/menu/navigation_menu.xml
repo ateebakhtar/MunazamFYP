@@ -10,5 +10,11 @@
     <item android:id="@+id/logout"
         android:icon="@drawable/e1"
         android:title="Logout"/>
+    <item android:id="@+id/mymeeting"
+        android:icon="@drawable/e1"
+        android:title="My Meetings"/>
+    <item android:id="@+id/joined"
+        android:icon="@drawable/e1"
+        android:title="Joined Meetings"/>
 
 </menu>

@@ -19,6 +19,9 @@ public interface MeetingInterface
     @GET("/meetinglist")
     Call<ArrayList<MeetingModel>> getmeeetinglist();
 
+    @GET("/meetinglist/{uniid}")
+    Call<ArrayList<MeetingModel>> getmymeeetinglist(@Path("uniid") String uniid);
+
     @GET("/joinmeeting/{id}/{name}/{uniid}")
     Call<String> joinmeeting(@Path("id") String id,@Path("name") String name,@Path("uniid") String uniid);
 
