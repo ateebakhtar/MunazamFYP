@@ -29,7 +29,7 @@ public class ReminderView extends Fragment
 {
     ArrayList<WorkloadViewModel> list1 = new ArrayList<>();
 
-    ReminderView()
+    public ReminderView()
     {
 
     }
@@ -53,6 +53,7 @@ public class ReminderView extends Fragment
         super.onCreate(savedInstanceState);
         pageViewModel = ViewModelProviders.of(this).get(PageViewModel.class);
         pageViewModel.setIndex("Reminder");
+        newInstance();
     }
 
     @Override
