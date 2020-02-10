@@ -72,6 +72,7 @@ public class GetMyMeetingConnection extends AsyncTask<Void,Void,Void>
         try {
             x = call.execute();
             System.out.println(x);
+            Data.mymeetings = x.body();
         } catch (IOException e) {
             e.printStackTrace();
         }

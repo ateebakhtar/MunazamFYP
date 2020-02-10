@@ -64,12 +64,14 @@ public class JoinedMeetingConnection extends AsyncTask<Void,Void,Void>
                 .build();
         MeetingInterface GDS = m.create(MeetingInterface.class);
         //JsonReader.setLenient(true);
-        Call<ArrayList<MeetingModel>> call = GDS.getmymeeetinglist("k163847");
+        Call<ArrayList<MeetingModel>> call = GDS.getmymeeetinglist("k173848");
         //Call<String> call = GDS.Get(id);
         Response<ArrayList<MeetingModel>> x = null;
         try {
             x = call.execute();
             System.out.println(x);
+            Data.joinedmeeting = x.body();
+            System.out.println(Data.joinedmeeting);
         } catch (IOException e) {
             e.printStackTrace();
         }

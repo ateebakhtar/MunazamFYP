@@ -7,6 +7,16 @@ public class extendeditem
     private String date;
     private String capacity;
     private String description;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    private String id;
     private boolean expanded;
 
     public void setCapacity(String capacity) {
@@ -17,13 +27,14 @@ public class extendeditem
         return capacity;
     }
 
-    public extendeditem(String topic, String time, String date, String description, String capacity) {
+    public extendeditem(String topic, String time, String date, String description, String capacity,String id) {
         this.topic = topic;
         this.time = time;
         this.date = date;
         this.description = description;
         this.capacity=capacity;
         this.expanded = false;
+        this.id = id;
 
     }
 

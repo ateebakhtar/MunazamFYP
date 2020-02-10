@@ -67,7 +67,7 @@ public class JoinMeetingConnection extends AsyncTask<Void, Void, Void>
         //JsonReader.setLenient(true);
         //@GET("/meeting/{course}/{name}/{id}/{venue}/{time}/{date}/{capacity}/{topic}/{description}")
         //hello
-        Call<String> call = GDS.joinmeeting(""+mm.getId(),mm.getName(),mm.getUniid());
+        Call<String> call = GDS.joinmeeting(""+mm.getMeetingID(),mm.getName(),mm.getUniid());
         Response<String> x = null;
         try
         {

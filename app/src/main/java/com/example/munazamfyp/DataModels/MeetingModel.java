@@ -14,6 +14,10 @@ public class MeetingModel
         this.topic = topic;
         this.description = description;
     }
+    MeetingModel()
+    {
+
+    }
 
     public String getCapacity() {
         return capacity;

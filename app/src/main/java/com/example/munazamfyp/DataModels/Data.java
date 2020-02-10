@@ -29,4 +29,13 @@ public class Data
     public final static String ip = "http://192.168.100.14:8080/";
     // list of attendees
     public static ArrayList<AttendeesModel> m;
+    //list of meetings
+    public static ArrayList<MeetingModel> meetingModels = new ArrayList<MeetingModel>();
+    //list of my joined meeting list
+    public static ArrayList<MeetingModel> joinedmeeting = new ArrayList<MeetingModel>();
+    //list of my meetings
+    public static ArrayList<MeetingModel> mymeetings = new ArrayList<MeetingModel>();
+    //enter meeting object
+    public static MeetingModel mobj = new MeetingModel();
+
 }

@@ -29,7 +29,7 @@ public class AddMeeting2 extends AppCompatActivity {
 
     public void OpenNext1(View view){
 
-        Intent I = new Intent(this, mainmenu.class);
+        Intent I = new Intent(this, AddMeeting3.class);
         startActivity(I);
 
     }

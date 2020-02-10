@@ -11,7 +11,10 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.munazamfyp.Connections.GetMyMeetingConnection;
 import com.example.munazamfyp.Connections.GetReminderConnection;
+import com.example.munazamfyp.Connections.JoinedMeetingConnection;
+import com.example.munazamfyp.Connections.MeetingListConnection;
 import com.example.munazamfyp.Connections.SIgninConnection;
 import com.example.munazamfyp.Connections.WorkloadConnection;
 import com.example.munazamfyp.DataModels.Data;
@@ -58,6 +61,9 @@ public class Login extends AppCompatActivity {
                 UserData.password = pass.getText().toString();
                 new WorkloadConnection(Login.this).execute();
                 new GetReminderConnection(Login.this).execute();
+                new MeetingListConnection(Login.this).execute();
+                new JoinedMeetingConnection(this).execute();
+                new GetMyMeetingConnection(this).execute();
                 System.out.println("id == "+Data.status);
 
                 SharedPreferences sharedpreferences = getSharedPreferences("Login", Context.MODE_PRIVATE);

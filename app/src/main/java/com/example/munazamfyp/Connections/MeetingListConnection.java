@@ -73,6 +73,7 @@ public class MeetingListConnection extends AsyncTask<Void,Void,Void>
         {
             x = call.execute();
             System.out.println(x);
+            Data.meetingModels = x.body();
         }
         catch (IOException e)
         {

@@ -14,11 +14,12 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".AttendeeList"></activity>
+        <activity android:name=".AddMeeting3"></activity>
+        <activity android:name=".AttendeeList" />
         <activity android:name=".JoinedMeetinList" />
-        <activity android:name=".GPAActivity"></activity>
+        <activity android:name=".GPAActivity" />
         <activity android:name=".MyMeetingList" />
-        <activity android:name=".Fragments.GPAView"></activity>
+        <activity android:name=".Fragments.GPAView" />
         <activity android:name=".AddMeeting2" />
         <activity android:name=".AddMeeting1" />
         <activity android:name=".AddMeeting" />
