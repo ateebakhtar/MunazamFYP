@@ -13,6 +13,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.munazamfyp.DataModels.Data;
+
 public class AddMeeting1 extends AppCompatActivity {
     Spinner spin;
     Spinner spin1;
@@ -93,6 +95,7 @@ public class AddMeeting1 extends AppCompatActivity {
 
                     Toast.makeText(AddMeeting1.this, mSpinner.getSelectedItem().toString(), Toast.LENGTH_SHORT)
                             .show();
+                    Data.mobj.setCourse(mSpinner.getSelectedItem().toString());
 
                     dialogInterface.dismiss();
 
@@ -129,6 +132,7 @@ public class AddMeeting1 extends AppCompatActivity {
 
                     Toast.makeText(AddMeeting1.this, mSpinner.getSelectedItem().toString(), Toast.LENGTH_SHORT)
                             .show();
+                    Data.mobj.setCourse(mSpinner.getSelectedItem().toString());
 
                     dialogInterface.dismiss();
 
@@ -166,7 +170,7 @@ public class AddMeeting1 extends AppCompatActivity {
 
                     Toast.makeText(AddMeeting1.this, mSpinner.getSelectedItem().toString(), Toast.LENGTH_SHORT)
                             .show();
-
+                    Data.mobj.setCourse(mSpinner.getSelectedItem().toString());
                     dialogInterface.dismiss();
 
                 }
@@ -190,7 +194,14 @@ public class AddMeeting1 extends AppCompatActivity {
 
     public void OpenNext(View view){
 
-        Intent I = new Intent(this, AddMeeting2.class);
+        EditText name = findViewById(R.id.editText2);
+        EditText id = findViewById(R.id.editText);
+
+        Data.mobj.setUniid(id.getText().toString());
+        Data.mobj.setName(name.getText().toString());
+
+
+        Intent I = new Intent(this, AddMeeting3.class);
         startActivity(I);
 
     }

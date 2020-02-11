@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import com.example.munazamfyp.DataModels.Data;
+
 public class AddMeeting extends AppCompatActivity {
 
     Spinner spin;
@@ -18,19 +20,16 @@ public class AddMeeting extends AppCompatActivity {
         setContentView(R.layout.activity_add_meeting);
         spin = (Spinner) findViewById(R.id.spinner);
 
-// Array of Months acting as a data pump
+
         String[] objects = {"Assignment", "Project", "Quiz", "Midterm"};
 
-// Declaring an Adapter and initializing it to the data pump
+
         ArrayAdapter adapter = new ArrayAdapter(
                 getApplicationContext(), android.R.layout.simple_list_item_1, objects);
 
-// Setting Adapter to the Spinner
+
+
         spin.setAdapter(adapter);
-
-// Setting OnItemClickListener to the Spinner
-        // spin.setOnItemSelectedListener(this);
-
         spin1 = (Spinner) findViewById(R.id.spinner2);
 
 // Array of Months acting as a data pump
@@ -49,6 +48,7 @@ public class AddMeeting extends AppCompatActivity {
 
     public void OpenNext(View view){
 
+        Data.mobj.setCourse(spin1.getSelectedItem().toString());
         Intent I = new Intent(this, AddMeeting1.class);
         startActivity(I);
 
