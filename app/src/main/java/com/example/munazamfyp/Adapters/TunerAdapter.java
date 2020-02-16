@@ -48,13 +48,13 @@ public class TunerAdapter extends RecyclerView.Adapter<TunerAdapter.TunerAH>
     @Override
     public void onBindViewHolder(@NonNull TunerAH holder, int position) {
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.planets_array, android.R.layout.simple_spinner_item);
-// Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-// Apply the adapter to the spinner
-        spinner.setAdapter(adapter);
-
+//        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+//                R.array.planets_array, android.R.layout.simple_spinner_item);
+//// Specify the layout to use when the list of choices appears
+//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//// Apply the adapter to the spinner
+//        spinner.setAdapter(adapter);
+//
 
         holder.semester.setText("Semester: "+sizer.get(position));
 
@@ -97,7 +97,7 @@ public class TunerAdapter extends RecyclerView.Adapter<TunerAdapter.TunerAH>
 
         public TunerAH(@NonNull final View itemView) {
             super(itemView);
-            ArrayAdapter aa = new ArrayAdapter(this, and.simple_spinner_item,GPA );
+            ArrayAdapter aa = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item,GPA );
             aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             //Setting the ArrayAdapter data on the Spinner
             spin.setAdapter(aa);
