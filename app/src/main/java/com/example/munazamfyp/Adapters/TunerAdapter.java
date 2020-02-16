@@ -72,6 +72,14 @@ public class TunerAdapter extends RecyclerView.Adapter<TunerAdapter.TunerAH>
             semester = itemView.findViewById(R.id.textView25);
             expandableLayout = itemView.findViewById(R.id.constraintLayout3);
 
+            grade1 = itemView.findViewById(R.id.textView31);
+            grade2 = itemView.findViewById(R.id.textView32);
+            grade3 = itemView.findViewById(R.id.textView33);
+            grade4 = itemView.findViewById(R.id.textView34);
+            grade5 = itemView.findViewById(R.id.textView35);
+            grade6 = itemView.findViewById(R.id.textView36);
+
+
             semester.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
