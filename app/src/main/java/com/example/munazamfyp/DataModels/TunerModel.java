@@ -84,7 +84,17 @@ public class TunerModel
     String grade5;
     String grade6;
 
-    public TunerModel(String cgpa, String sgpa, String grade1, String grade2, String grade3, String grade4, String grade5, String grade6) {
+    public String getGrade7() {
+        return grade7;
+    }
+
+    public void setGrade7(String grade7) {
+        this.grade7 = grade7;
+    }
+
+    String grade7;
+
+    public TunerModel(String cgpa, String sgpa, String grade1, String grade2, String grade3, String grade4, String grade5, String grade6,String grade7) {
         this.cgpa = cgpa;
         this.sgpa = sgpa;
         this.grade1 = grade1;
@@ -93,6 +103,7 @@ public class TunerModel
         this.grade4 = grade4;
         this.grade5 = grade5;
         this.grade6 = grade6;
+        this.grade7 = grade7;
         this.expanded = false;
     }
 }

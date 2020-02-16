@@ -18,11 +18,19 @@ public class TunerAdapter extends RecyclerView.Adapter<TunerAdapter.TunerAH>
 {
     private static final String TAG = "MovieAdapter";
     List<TunerModel> tunerlist;
+    List<Boolean> expandede;
+    List<Integer> sizer;
 
-    public TunerAdapter(List<TunerModel> movieList) {
-        this.tunerlist = movieList;
+    //public TunerAdapter(List<TunerModel> movieList) {
+//        this.tunerlist = movieList;
+//    }
+
+
+    public TunerAdapter(List<Integer> movieList,List<Boolean> expandede) {
+
+        this.expandede = expandede;
+        this.sizer = movieList;
     }
-
     @NonNull
     @Override
     public TunerAH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -33,16 +41,18 @@ public class TunerAdapter extends RecyclerView.Adapter<TunerAdapter.TunerAH>
     @Override
     public void onBindViewHolder(@NonNull TunerAH holder, int position) {
 
-        holder.cgpa.setText(tunerlist.get(position).getCgpa());
+        //holder.cgpa.setText(tunerlist.get(position).getCgpa());
 
-        boolean isExpanded = tunerlist.get(position).isExpanded();
+        holder.semester.setText("Semester: "+sizer.get(position));
+
+        boolean isExpanded = expandede.get(position);
         holder.expandableLayout.setVisibility(isExpanded ? View.VISIBLE : View.GONE);
 
     }
 
     @Override
     public int getItemCount() {
-        return tunerlist.size();
+        return sizer.size();
     }
 
     class TunerAH extends RecyclerView.ViewHolder {
@@ -52,12 +62,13 @@ public class TunerAdapter extends RecyclerView.Adapter<TunerAdapter.TunerAH>
         TextView cgpa;
         TextView sgpa;
         TextView semester;
-        TextView grade1;
-        TextView grade2;
-        TextView grade3;
-        TextView grade4;
-        TextView grade5;
-        TextView grade6;
+        TextView course1;
+        TextView course2;
+        TextView course3;
+        TextView course4;
+        TextView course5;
+        TextView course6;
+        TextView course7;
 
 
 
@@ -72,20 +83,24 @@ public class TunerAdapter extends RecyclerView.Adapter<TunerAdapter.TunerAH>
             semester = itemView.findViewById(R.id.textView25);
             expandableLayout = itemView.findViewById(R.id.constraintLayout3);
 
-            grade1 = itemView.findViewById(R.id.textView31);
-            grade2 = itemView.findViewById(R.id.textView32);
-            grade3 = itemView.findViewById(R.id.textView33);
-            grade4 = itemView.findViewById(R.id.textView34);
-            grade5 = itemView.findViewById(R.id.textView35);
-            grade6 = itemView.findViewById(R.id.textView36);
+            course1 = itemView.findViewById(R.id.textView31);
+            course2 = itemView.findViewById(R.id.textView32);
+            course3 = itemView.findViewById(R.id.textView33);
+            course4 = itemView.findViewById(R.id.textView34);
+            course5 = itemView.findViewById(R.id.textView35);
+            course6 = itemView.findViewById(R.id.textView36);
+            course7 = itemView.findViewById(R.id.textView52);
 
 
             semester.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 
-                    TunerModel tuner = tunerlist.get(getAdapterPosition());
-                    tuner.setExpanded(!tuner.isExpanded());
+//                    TunerModel tuner = tunerlist.get(getAdapterPosition());
+//                    tuner.setExpanded(!tuner.isExpanded());
+//                    notifyItemChanged(getAdapterPosition());
+                    boolean x = expandede.get(getAdapterPosition());
+                    expandede.set(getAdapterPosition(),!x);
                     notifyItemChanged(getAdapterPosition());
 
                 }
