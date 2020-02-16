@@ -397,7 +397,6 @@
                     android:layout_marginTop="4dp"
                     android:text="Grade"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/textView54"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="@+id/textView52"
                     app:layout_constraintTop_toBottomOf="@+id/textView42" />
