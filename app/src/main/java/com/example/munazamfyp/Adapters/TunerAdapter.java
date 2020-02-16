@@ -148,13 +148,7 @@ public class TunerAdapter extends RecyclerView.Adapter<TunerAdapter.TunerAH>
         TextView cgpa;
         TextView sgpa;
         TextView semester;
-        TextView course1;
-        TextView course2;
-        TextView course3;
-        TextView course4;
-        TextView course5;
-        TextView course6;
-        TextView course7;
+
 
         //TextView[] cours = new TextView[7];
 
