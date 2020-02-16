@@ -26,6 +26,8 @@ import java.util.List;
 
 public class MeetingAdapter extends RecyclerView.Adapter<MeetingAdapter.MovieVH> {
 
+
+    //helos from lotus
     int index;
     private static final String TAG = "MovieAdapter";
     List<extendeditem> movieList;
