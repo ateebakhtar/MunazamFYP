@@ -90,14 +90,12 @@
         <item>Computer Programming</item>
         <item>Digital Logic Design</item>
         <item>Digital Logic Design - Lab</item>
-        <item>Management and Organizational Behavior</item>
         <item>Calculus - II</item>
         <item>Pakistan Studies</item>
         <item>English Composition</item>
     </string-array>
 
     <string-array name="s3">
-        <item>Data Structures - Lab</item>
         <item>Data Structures</item>
         <item>Discrete Structures</item>
         <item>Data Structures</item>

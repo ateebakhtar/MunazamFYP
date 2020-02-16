@@ -55,7 +55,7 @@ public class TunerView extends Fragment
 //        tuner.add(new TunerModel("1.3","4.0","1","1","1","1","1","1","!"));
 
         recyclerView = root.findViewById(R.id.recyclerView2);
-        TunerAdapter movieAdapter = new TunerAdapter(tuner,expanded);
+        TunerAdapter movieAdapter = new TunerAdapter(tuner,expanded,root.getContext());
         recyclerView.setLayoutManager(new LinearLayoutManager(root.getContext()));
         recyclerView.setAdapter(movieAdapter);
 
@@ -78,7 +78,7 @@ public class TunerView extends Fragment
        tuner.add(counter);
        expanded.add(false);
 
-        TunerAdapter movieAdapter = new TunerAdapter(tuner,expanded);
+        TunerAdapter movieAdapter = new TunerAdapter(tuner,expanded,root.getContext());
         recyclerView.setAdapter(movieAdapter);
     }
 }
