@@ -47,7 +47,7 @@ public class AddMeetingConnections extends AsyncTask<Void, Void, Void>
     @Override
     protected Void doInBackground(Void... voids) {
 
-        System.out.println("Hello");
+        System.out.println("Hello from meeting connection");
 
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
@@ -73,11 +73,13 @@ public class AddMeetingConnections extends AsyncTask<Void, Void, Void>
         Response<String> x = null;
         try
         {
+            System.out.println("hellososos");
             x = call.execute();
             System.out.println(x);
         }
         catch (IOException e)
         {
+            System.out.println("didtn work");
             e.printStackTrace();
         }
 

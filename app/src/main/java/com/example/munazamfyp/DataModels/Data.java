@@ -27,6 +27,7 @@ public class Data
     public static ArrayList<CoursesModel> x1 = new ArrayList<CoursesModel>();
     //ip address of the server
     public final static String ip = "http://192.168.100.14:8080/";
+    //public final static String ip = "http://192.168.100.14:8080/";
     // list of attendees
     public static ArrayList<AttendeesModel> m;
     //list of meetings

@@ -73,7 +73,82 @@
         <item> Discussion Room 7 </item>
         <item> Discussion Room 8 </item>
 
+    </string-array>
 
+    <string-array name="s1">
+        <item>Introduction to Computing Lab</item>
+        <item>Introduction to Computing</item>
+        <item>Basic Electronics</item>
+        <item>Calculus - I</item>
+        <item>English Language Lab</item>
+        <item>English Language</item>
+        <item>Islamic and Religious Studies</item>
+    </string-array>
+
+    <string-array name="s2">
+        <item>Computer Programming Lab</item>
+        <item>Computer Programming</item>
+        <item>Digital Logic Design</item>
+        <item>Digital Logic Design - Lab</item>
+        <item>Management and Organizational Behavior</item>
+        <item>Calculus - II</item>
+        <item>Pakistan Studies</item>
+        <item>English Composition</item>
+    </string-array>
+
+    <string-array name="s3">
+        <item>Data Structures - Lab</item>
+        <item>Data Structures</item>
+        <item>Discrete Structures</item>
+        <item>Data Structures</item>
+        <item>Comp. Organization and Assembly Lang.</item>
+        <item>Comp. Organization and Assembly Lang. Lab</item>
+        <item>Linear Algebra</item>
+        <item>Elective</item>
+    </string-array>
+
+    <string-array name="s4">
+        <item>Database Systems Lab</item>
+        <item>Operating Systems Lab</item>
+        <item>Database Systems</item>
+        <item>Operating Systems</item>
+        <item>Design and Analysis of Algorithms</item>
+        <item>Computer Architecture</item>
+        <item>Elective</item>
+    </string-array>
+
+    <string-array name="s5">
+        <item>Computer Networks Lab</item>
+        <item>Object Oriented Analysis and Design Lab</item>
+        <item>Theory of Automata</item>
+        <item>Computer Networks</item>
+        <item>Object Oriented Analysis and Design</item>
+        <item>Elective 1</item>
+        <item>Elective 2</item>
+    </string-array>
+
+    <string-array name="s6">
+        <item>Software Engineering</item>
+        <item>Artificial Intelligence</item>
+        <item>Technical and Business Writing</item>
+        <item>Elective 1</item>
+        <item>Elective 2</item>
+    </string-array>
+
+    <string-array name="s7">
+        <item>Computer Networks Lab</item>
+        <item>Computer Networks</item>
+        <item>Human Computer Interaction</item>
+        <item>Project - I</item>
+        <item>Elective 1</item>
+    </string-array>
+
+    <string-array name="s8">
+        <item>Professional Issues in IT</item>
+        <item>Project - II</item>
+        <item>Elective 1</item>
+        <item>Elective 2</item>
+        <item>Elective 3</item>
     </string-array>
 
 </resources>

@@ -2,6 +2,7 @@ package com.example.munazamfyp.Adapters;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.munazamfyp.AttendeeList;
+import com.example.munazamfyp.Connections.AttendeesListConnection;
 import com.example.munazamfyp.Connections.JoinMeetingConnection;
 import com.example.munazamfyp.Connections.JoinedMeetingConnection;
 import com.example.munazamfyp.DataModels.AttendeesModel;
@@ -23,14 +26,15 @@ import java.util.List;
 
 public class MeetingAdapter extends RecyclerView.Adapter<MeetingAdapter.MovieVH> {
 
-
+    int index;
     private static final String TAG = "MovieAdapter";
     List<extendeditem> movieList;
     Context cx;
-    public MeetingAdapter(List<extendeditem> movieList, Context cs)
+    public MeetingAdapter(List<extendeditem> movieList, Context cs,int index)
     {
         cx = cs;
         this.movieList = movieList;
+        this.index = index;
     }
 
     @NonNull
@@ -51,13 +55,33 @@ public class MeetingAdapter extends RecyclerView.Adapter<MeetingAdapter.MovieVH>
         holder.dateTextView.setText(movie.getDate());
         holder.timeTextView.setText(movie.getTime());
         holder.CapacityTextView.setText(movie.getCapacity());
+        switch (index)
+        {
+            case 1:
+                holder.joinmeeting.setText("Join Meeting");
+                holder.joinmeeting.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        new JoinMeetingConnection(new AttendeesModel(1,1, Data.validid,Data.semester),cx).execute();
+                    }
+                });
+                break;
+            case 2:
+                holder.joinmeeting.setText("View Attendees");
+                holder.joinmeeting.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent i = new Intent(cx, AttendeeList.class);
+                        new AttendeesListConnection(cx).execute();
+                        cx.startActivity(i);
+                    }
+                });
+                break;
+            case 3:
+               holder.joinmeeting.setVisibility(View.GONE);
+                break;
+        }
 
-        holder.joinmeeting.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new JoinMeetingConnection(new AttendeesModel(1,1, Data.validid,Data.semester),cx).execute();
-            }
-        });
         boolean isExpanded = movieList.get(position).isExpanded();
         holder.expandableLayout.setVisibility(isExpanded ? View.VISIBLE : View.GONE);
     }

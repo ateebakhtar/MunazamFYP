@@ -19,7 +19,7 @@ public class AttendeeList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attendee_list);
 
-        new AttendeesListConnection(this).execute();
+       // new AttendeesListConnection(this).execute();
 
         final ListView listview = (ListView) findViewById(R.id.listview);
         final ArrayList<String> list = new ArrayList<String>();

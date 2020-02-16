@@ -48,7 +48,7 @@ public class MyMeetingList extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView5);
         mLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(mLayoutManager);
-        recyclerAdapter = new MeetingAdapter(Meetingitem,this);
+        recyclerAdapter = new MeetingAdapter(Meetingitem,this,2);
         recyclerView.setAdapter(recyclerAdapter);
     }
 }

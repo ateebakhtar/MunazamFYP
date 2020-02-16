@@ -99,7 +99,7 @@ public class AddMeeting3 extends AppCompatActivity {
             Intent I = new Intent(this, AddMeeting2.class);
 
             new AddMeetingConnections(Data.mobj,this);
-
+            System.out.println("hellos after meeting");
             startActivity(I);
         }
 

@@ -41,6 +41,8 @@ public class AddMeeting2 extends AppCompatActivity {
         Data.mobj.setTopic(topic.getText().toString());
 
         new AddMeetingConnections(Data.mobj,this);
+        System.out.println("hellos after meeting");
+        //new AddMeetingConnections(Data.mobj,this);
 
         Intent I = new Intent(this, mainmenu.class);
         startActivity(I);

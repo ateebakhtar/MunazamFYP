@@ -86,7 +86,7 @@ public class MeetingView extends Fragment {
         recyclerView = root.findViewById(R.id.recyclerView3);
         mLayoutManager = new LinearLayoutManager(root.getContext());
         recyclerView.setLayoutManager(mLayoutManager);
-        recyclerAdapter = new MeetingAdapter(Meetingitem,root.getContext());
+        recyclerAdapter = new MeetingAdapter(Meetingitem,root.getContext(),1);
         recyclerView.setAdapter(recyclerAdapter);
 
 
