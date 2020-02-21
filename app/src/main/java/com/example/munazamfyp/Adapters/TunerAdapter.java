@@ -177,7 +177,7 @@ public class TunerAdapter extends RecyclerView.Adapter<TunerAdapter.TunerAH>
         holder.expandableLayout.setVisibility(isExpanded ? View.VISIBLE : View.GONE);
         DecimalFormat df = new DecimalFormat("0.00");
 
-
+        System.out.println(flag+" flagg");
         if(flag > 0)
         {
             System.out.println("Flagging the way"+newval[7*temp]);

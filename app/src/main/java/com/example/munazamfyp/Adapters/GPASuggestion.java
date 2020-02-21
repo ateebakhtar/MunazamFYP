@@ -45,7 +45,7 @@ public class GPASuggestion{
                     }
                 }
                 System.out.println();
-                gpa[index] = gpa[index] + 0.33;
+                gpa[index] = gpa[index] + 0.3335;
                 cgpa = calculate(gpa, credit);
                 min = 10;
 
