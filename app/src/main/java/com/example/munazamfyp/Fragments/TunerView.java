@@ -90,7 +90,7 @@ public class TunerView extends Fragment
 
         for(int i=0;i<8;i++)
         {
-            if(result[i*7] != -1)
+            if(result[i*7] != -1 || result[i*7+1] != -1 || result[i*7+2] != -1 || result[i*7+3] != -1 || result[i*7+4] != -1 || result[i*7+5] != -1 || result[i*7+6] != -1)
             {
                 counter++;
             }
