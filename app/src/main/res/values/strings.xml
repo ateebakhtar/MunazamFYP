@@ -98,7 +98,7 @@
     <string-array name="s3">
         <item>Data Structures</item>
         <item>Discrete Structures</item>
-        <item>Data Structures</item>
+        <item>Data Structures Lab</item>
         <item>Comp. Organization and Assembly Lang.</item>
         <item>Comp. Organization and Assembly Lang. Lab</item>
         <item>Linear Algebra</item>
@@ -139,6 +139,7 @@
         <item>Human Computer Interaction</item>
         <item>Project - I</item>
         <item>Elective 1</item>
+        <item>Elective 2</item>
     </string-array>
 
     <string-array name="s8">
