@@ -9,10 +9,12 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="146dp"
-        android:layout_height="136dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="99dp"
+        android:layout_marginBottom="327dp"
         android:onClick="showDatePickerDialog"
         android:tint="#2196F3"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/button22"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -31,21 +33,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/time" />
 
-    <ImageButton
-        android:id="@+id/imageButton"
-        style="@android:style/Widget.DeviceDefault.Light.ImageButton"
-        android:layout_width="75dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="158dp"
-        android:layout_marginLeft="158dp"
-        android:layout_marginTop="608dp"
-        android:background="#FAFAFA"
+    <Button
+        android:id="@+id/button22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginBottom="121dp"
         android:onClick="OpenNext1"
-        android:tint="#0C40FC"
+        android:text="Next"
+        android:textColor="@color/buttontext"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/next1" />
+        app:layout_constraintStart_toStartOf="@+id/imageView1"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,6 +2,7 @@ package com.example.munazamfyp.Adapters;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.graphics.PorterDuff;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -94,6 +95,9 @@ public class ReminderAdapter extends RecyclerView.Adapter<ReminderAdapter.Exampl
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view) {
+
+
+
                 Toast.makeText(view.getContext(), "Recycle Click" , Toast.LENGTH_SHORT).show();
                 DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
                     @Override

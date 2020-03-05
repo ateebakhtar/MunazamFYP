@@ -373,6 +373,7 @@
     <Button
         android:id="@+id/button20"
         android:layout_width="393dp"
+        android:textColor="@color/buttontext"
         android:layout_height="wrap_content"
         android:text="Calculate GPA" />
 

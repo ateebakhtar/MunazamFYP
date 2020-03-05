@@ -44,6 +44,8 @@ public class EnterReminder extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enter_reminder);
 
+        getSupportActionBar().hide();
+
         assignment = findViewById(R.id.imageButton3);
         quiz = findViewById(R.id.imageButton6);
         exam = findViewById(R.id.imageButton4);
