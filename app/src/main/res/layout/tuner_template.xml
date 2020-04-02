@@ -5,16 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:background="@color/background"
     android:padding="8dp">
 
     <androidx.cardview.widget.CardView
         android:layout_width="400dp"
+        android:background="@color/background"
         android:layout_height="wrap_content"
         android:padding="8dp">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
+            android:background="@color/background"
             android:layout_height="wrap_content">
 
             <TextView
@@ -28,16 +31,16 @@
                 app:layout_constraintBottom_toTopOf="@+id/textView26"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.421" />
+                app:layout_constraintVertical_bias="0.372" />
 
             <TextView
                 android:id="@+id/textView26"
                 android:layout_width="19dp"
                 android:layout_height="0dp"
-                android:layout_marginTop="8dp"
                 android:text="1"
                 app:layout_constraintEnd_toStartOf="@+id/textView27"
-                app:layout_constraintStart_toEndOf="@+id/textView25"
+                app:layout_constraintHorizontal_bias="0.712"
+                app:layout_constraintStart_toStartOf="@+id/textView25"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -65,10 +68,10 @@
                 android:id="@+id/textView29"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="4dp"
                 android:text="SGPA"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.392"
+                app:layout_constraintHorizontal_bias="0.415"
                 app:layout_constraintStart_toEndOf="@+id/textView28"
                 app:layout_constraintTop_toTopOf="@+id/textView25" />
 
@@ -76,10 +79,10 @@
                 android:id="@+id/textView30"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="4dp"
                 android:text="2.00"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.27"
+                app:layout_constraintHorizontal_bias="0.25"
                 app:layout_constraintStart_toEndOf="@+id/textView29"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -87,6 +90,7 @@
                 android:id="@+id/constraintLayout3"
                 android:layout_width="0dp"
                 android:layout_height="270dp"
+                android:background="@color/background"
                 android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

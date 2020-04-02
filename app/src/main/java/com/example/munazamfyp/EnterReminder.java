@@ -59,9 +59,9 @@ public class EnterReminder extends AppCompatActivity {
         new GetCourses(this,"asd","1").execute();
 
         spin1 = (Spinner) findViewById(R.id.spinner2);
-        String[] objects1 = { "Applied Physics", "Calculus and Analytical Geometry", "English Composition and Comprehension", "Introduction to Information and Communication Technologies", "Islamic and Religious Studies"};
 
         Handler handler =new Handler();
+        ArrayAdapter adapter1 = new ArrayAdapter(getApplicationContext(),android.R.layout.simple_list_item_1 ,getResources().getStringArray(R.array.s1) );
 
 
         handler.postDelayed(new Runnable() {
@@ -69,21 +69,23 @@ public class EnterReminder extends AppCompatActivity {
             public void run() {
                 System.out.println(":in the handler");
                 System.out.println("sideewgqg "+Data.courses.size());
-                final String[] obj = new String[Data.courses.size()];
-                for(int i=0;i<Data.courses.size();i++)
+                final String[] obj = new String[Data.x1.size()];
+                for(int i=0;i<Data.x1.size();i++)
                 {
                     System.out.println("Loopingg");
-                    obj[i] = Data.courses.get(i).getName();
+                    obj[i] = Data.x1.get(i).getName();
                     System.out.println("wtf "+obj[i]);
                 }
 
                 // System.out.println("Data"+Data.courses.get(2).getName());
                 ArrayAdapter adapter1 = new ArrayAdapter(getApplicationContext(),android.R.layout.simple_list_item_1 ,obj );
 
-                spin1.setAdapter(adapter1);
+                //spin1.setAdapter(adapter1);
             }
         },1000);
 
+
+        spin1.setAdapter(adapter1);
     }
     float ele = 35;
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)

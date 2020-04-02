@@ -4,14 +4,17 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 
+import com.example.munazamfyp.DataModels.CourseModel;
 import com.example.munazamfyp.DataModels.Data;
-import com.example.munazamfyp.DataModels.MeetingModel;
+import com.example.munazamfyp.DataModels.UserData;
 import com.example.munazamfyp.Interfaces.LoginInterface;
-import com.example.munazamfyp.Interfaces.MeetingInterface;
+import com.example.munazamfyp.Interfaces.ReminderInterface;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Locale;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -19,35 +22,33 @@ import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.http.GET;
 
-public class AddMeetingConnections extends AsyncTask<Void, Void, Void>
+public class GetConnectionConnection extends AsyncTask<Void, Void, Void>
 {
-    public AddMeetingConnections( Context context) {
-        this.mm = Data.mobj;
-        this.cx = context;
-    }
-    MeetingModel mm;
+    ProgressDialog progressDialog;
+    UserData UD;
     Context cx;
 
-    ProgressDialog progressDialog;
+    String name;
+    String sec;
+    GetConnectionConnection() {
 
-    @Override
-    protected void onPostExecute(Void v) {
-        // execution of result of Long time consuming operation
-        progressDialog.dismiss();
+    }
+
+    public GetConnectionConnection(Context context) {
+        cx = context;
 
     }
 
     @Override
     protected void onPreExecute() {
-        progressDialog = ProgressDialog.show(cx, "ProgressDialog", "Wait for "+ " seconds");
+        progressDialog = ProgressDialog.show(cx,
+                "ProgressDialog",
+                "Wait for "+ " seconds");
     }
 
     @Override
     protected Void doInBackground(Void... voids) {
-
-        System.out.println("Hello from meeting connection");
 
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
@@ -63,24 +64,34 @@ public class AddMeetingConnections extends AsyncTask<Void, Void, Void>
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
-        MeetingInterface GDS = m.create(MeetingInterface.class);
 
 
-        Call<String> call = GDS.addmeeting(mm.getVenue(),mm.getName(),mm.getUniid(),mm.getCourse(),mm.getTime(),mm.getDate(),mm.getCapacity(),mm.getTopic(),mm.getDescription());
-        Response<String> x = null;
-        try
-        {
-            System.out.println("hellososos");
-            x = call.execute();
-            System.out.println(x);
+        final LoginInterface GDS = m.create(LoginInterface.class);
+
+        final Response<String>[] x = new Response[]{null};
+        final Call<String>[] call = new Call[]{GDS.getconnection()};
+
+        try {
+            x[0] = call[0].execute();
+            System.out.println(x[0].body());
+
+            Data.networkstatus = x[0].body();
+
         }
-        catch (IOException e)
-        {
-            System.out.println("didtn work");
+        catch (IOException e) {
+            Data.networkstatus = "notok";
             e.printStackTrace();
         }
 
-
         return null;
+    }
+
+
+    @Override
+    protected void onPostExecute(Void v) {
+
+        progressDialog.dismiss();
+
+
     }
 }

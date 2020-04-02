@@ -78,7 +78,7 @@ public class TunerAdapter extends RecyclerView.Adapter<TunerAdapter.TunerAH>
 
         holder.semester.setText("Semester: "+sizer.get(position));
 
-        final String[] obj = {"0.00","1.00","1.33","1.37","2.00","2.33","2.67","3.00","3.33","3.67","4.00"};
+        final String[] obj = {"0.00","1.00","1.33","1.67","2.00","2.33","2.67","3.00","3.33","3.67","4.00"};
 
 
         switch (sizer.get(position))
@@ -397,17 +397,10 @@ public class TunerAdapter extends RecyclerView.Adapter<TunerAdapter.TunerAH>
                 }
                 GPASuggestion x = new GPASuggestion();
                 double gpa = x.calculate(arr,cr);
+                sgpa.setText(""+gpa);
+
+                gpa = x.calculate(val,val);
                 cgpa.setText(""+gpa);
-
-                    for(int i=0;i<56;i++)
-                    {
-                        System.out.print(val[i]+" - ");
-                        if(i+1 % 7 == 0)
-                        {
-                            System.out.println();
-                        }
-                    }
-
                 }
             });
 

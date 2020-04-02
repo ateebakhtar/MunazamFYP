@@ -37,12 +37,13 @@ public class DataTimeScreen extends AppCompatActivity {
     }
     public void showTimePickerDialog(View v) {
         DialogFragment newFragment = new TimePickerFragment();
-        newFragment.setStyle(DialogFragment.STYLE_NORMAL,R.style.DialogTheme);
+        newFragment.setStyle(DialogFragment.STYLE_NO_FRAME,R.style.TimePickerTheme);
         newFragment.show(getSupportFragmentManager(), "timePicker");
     }
 
     public void showDatePickerDialog(View v) {
         DialogFragment newFragment = new DatePickerFragment();
+        newFragment.setStyle(DialogFragment.STYLE_NORMAL,R.style.TimePickerTheme);
         newFragment.show(getSupportFragmentManager(), "datePicker");
     }
 

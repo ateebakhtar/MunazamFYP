@@ -199,9 +199,9 @@ public class AddMeeting1 extends AppCompatActivity {
 
         Data.mobj.setUniid(id.getText().toString());
         Data.mobj.setName(name.getText().toString());
+        System.out.println("Excuting meeting datae time nowww");
 
-
-        Intent I = new Intent(this, AddMeeting3.class);
+        Intent I = new Intent(this, MeetingDateTime.class);
         startActivity(I);
 
     }

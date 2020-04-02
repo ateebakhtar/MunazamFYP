@@ -9,12 +9,12 @@ public class GPASuggestion{
 
         private static DecimalFormat df = new DecimalFormat("0.00");
 
-
+    double[] credit = {1, 3, 3, 3, 1, 3, 3, 1, 3, 3, 1, 3, 3, 3, 3, 3, 1, 3, 1, 3, 3, 1, 1, 3, 3, 3, 3, 3, 1, 1, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 0, 0, 1, 3, 3, 3, 3, 3, 0, 3, 3, 3, 3, 3, 0, 0};
 
         //This function is used to suggest the gpa//
         public double[] suggest(double expected, double[] gpa, double cgpa) {
             //dummy hardcoded course gpa values along with thier respcetive credit hour in gpa//
-            double[] credit = {1, 3, 3, 3, 1, 3, 3, 1, 3, 3, 1, 3, 3, 3, 3, 3, 1, 3, 1, 3, 3, 1, 1, 3, 3, 3, 3, 3, 1, 1, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 0, 0, 1, 3, 3, 3, 3, 3, 0, 3, 3, 3, 3, 3, 0, 0};
+
 
             double[] gpaS = {1, 3, 4, 3.67, 2.67, 2.67, 3.33};
             //double[] credit = {1, 3, 3, 3, 1, 3, 3};
@@ -59,7 +59,7 @@ public class GPASuggestion{
             double denominator = 0;
             double numerator = 0;
             for (int i = 0; i < gpa.length; i++) {
-                if(gpa[i] != -1)
+                if(gpa[i] >-1)
                 {
                     denominator = (gpa[i] * credit[i]) + denominator;
                     numerator = credit[i] + numerator;
@@ -69,4 +69,19 @@ public class GPASuggestion{
             result = denominator / numerator;
             return result;
         }
+    public double calculate(double gpa[]) {
+        double result = 0;
+        double denominator = 0;
+        double numerator = 0;
+        for (int i = 0; i < gpa.length; i++) {
+            if(gpa[i] >-1)
+            {
+                denominator = (gpa[i] * credit[i]) + denominator;
+                numerator = credit[i] + numerator;
+            }
+
+        }
+        result = denominator / numerator;
+        return result;
+    }
     }

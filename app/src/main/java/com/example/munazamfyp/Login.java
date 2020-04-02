@@ -59,11 +59,11 @@ public class Login extends AppCompatActivity {
                 Toast.makeText(Login.this, "Welcome", Toast.LENGTH_SHORT).show();
                 UserData.name = name.getText().toString();
                 UserData.password = pass.getText().toString();
-                new WorkloadConnection(Login.this).execute();
-                new GetReminderConnection(Login.this).execute();
-                new MeetingListConnection(Login.this).execute();
-                new JoinedMeetingConnection(this).execute();
-                new GetMyMeetingConnection(this).execute();
+//                new WorkloadConnection(Login.this).execute();
+//                new GetReminderConnection(Login.this).execute();
+//                new MeetingListConnection(Login.this).execute();
+//                new JoinedMeetingConnection(this).execute();
+//                new GetMyMeetingConnection(this).execute();
                 System.out.println("id == "+Data.status);
 
                 SharedPreferences sharedpreferences = getSharedPreferences("Login", Context.MODE_PRIVATE);

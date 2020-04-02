@@ -214,22 +214,5 @@ public class SelectCourses2 extends AppCompatActivity {
     }
 
 
-//    public void next(View view)
-//    {
-//
-//        Data.x1.add(new CoursesModel(spinner4.getSelectedItem().toString(),section4.getSelectedItem().toString()));
-//        Data.x1.add(new CoursesModel(spinner5.getSelectedItem().toString(),section5.getSelectedItem().toString()));
-//        Data.x1.add(new CoursesModel(spinner6.getSelectedItem().toString(),section6.getSelectedItem().toString()));
-//
-//        //Data.x.get(0).getName();
-//        Toast.makeText(getApplicationContext(),"work done", Toast.LENGTH_LONG).show();
-//        for(int i=0;i<Data.x1.size();i++)
-//        {
-//            new SetCoursesConnection(this,Data.x1.get(i).getName(),Data.x1.get(i).getSection()).execute();
-//        }
-//        Intent i = new Intent(this,Login.class);
-//        //startActivity(i);
-//
-//
-//    }
+
 }

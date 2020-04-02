@@ -13,6 +13,8 @@ public interface LoginInterface
     @GET("/sendmail/{id}")
     Call<String> emailverify(@Path("id") String id);
 
+    @GET("/getconnection")
+    Call<String> getconnection();
 
     @GET("login/{name}/{pass}")
     Call<String> Getlogin(@Path("name") String name,@Path("pass") String pass);

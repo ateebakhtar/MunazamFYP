@@ -12,8 +12,12 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.example.munazamfyp.Adapters.MeetingAdapter;
 import com.example.munazamfyp.Adapters.ReminderAdapter;
+import com.example.munazamfyp.Connections.GetReminderConnection;
+import com.example.munazamfyp.Connections.MeetingListConnection;
 import com.example.munazamfyp.DataModels.Data;
 import com.example.munazamfyp.DataModels.WorkloadViewModel;
 import com.example.munazamfyp.DataModels.ReminderModel;
@@ -62,6 +66,18 @@ public class ReminderView extends Fragment
         // Inflate the layout for this fragment
         root = inflater.inflate(R.layout.activity_reminder_view, container, false);
 
+        final SwipeRefreshLayout pullToRefresh = root.findViewById(R.id.pullToRefresh);
+        pullToRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                new GetReminderConnection(root.getContext()).execute();
+                mAdapter = new ReminderAdapter(Data.x);
+                mRecyclerView.setAdapter(mAdapter);
+                // your code
+                pullToRefresh.setRefreshing(false);
+            }
+        });
+
         B = root.findViewById(R.id.imageButton2);
 
         if (Data.x == null) {
@@ -75,9 +91,10 @@ public class ReminderView extends Fragment
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(root.getContext());
         mAdapter = new ReminderAdapter(Data.x);
+        mRecyclerView.setAdapter(mAdapter);
 
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mRecyclerView.setAdapter(mAdapter);
+
 
         B.setOnClickListener(new View.OnClickListener() {
             @Override

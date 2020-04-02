@@ -15,7 +15,6 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.munazamfyp.Connections.AddMeetingConnections;
-import com.example.munazamfyp.Connections.JoinMeetingConnection;
 import com.example.munazamfyp.DataModels.Data;
 import com.example.munazamfyp.DataModels.date;
 import com.example.munazamfyp.DataModels.time;
@@ -24,17 +23,18 @@ import com.example.munazamfyp.Pickers.TimePickerFragment;
 
 import java.util.Calendar;
 
-public class AddMeeting3 extends AppCompatActivity {
-
+public class MeetingDateTime extends AppCompatActivity {
 
     ImageView timer;
     ImageView cal;
 
+
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_meeting3);
+        setContentView(R.layout.activity_meeting_date_time);
+        timer = findViewById(R.id.imageView1);
+        cal = findViewById(R.id.imageView);
     }
 
     void openmain(View view)
@@ -96,9 +96,9 @@ public class AddMeeting3 extends AppCompatActivity {
             String datee = ""+da.getDay()+" "+da.getMonth()+" "+da.getYear();
             Data.mobj.setDate(datee);
             Data.mobj.setTime(t.getMin()+" "+t.getHour());
-            Intent I = new Intent(this, AddMeeting2.class);
+            Intent I = new Intent(this, MeetingDescription.class);
 
-            new AddMeetingConnections(this);
+            //new AddMeetingConnections(Data.mobj,this);
             System.out.println("hellos after meeting");
             startActivity(I);
         }

@@ -14,7 +14,9 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".AddMeeting3"></activity>
+        <activity android:name=".MeetingDescription"></activity>
+        <activity android:name=".MeetingDateTime" />
+        <activity android:name=".AddMeeting3" />
         <activity android:name=".AttendeeList" />
         <activity android:name=".JoinedMeetinList" />
         <activity android:name=".GPAActivity" />

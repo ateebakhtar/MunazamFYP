@@ -1,7 +1,6 @@
 package com.example.munazamfyp;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.DialogFragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,17 +9,14 @@ import android.widget.EditText;
 
 import com.example.munazamfyp.Connections.AddMeetingConnections;
 import com.example.munazamfyp.DataModels.Data;
-import com.example.munazamfyp.Pickers.DatePickerFragment;
-import com.example.munazamfyp.Pickers.TimePickerFragment;
 
-public class AddMeeting2 extends AppCompatActivity {
+public class MeetingDescription extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_meeting2);
+        setContentView(R.layout.activity_meeting_description);
     }
-
 
     public void OpenNext1(View view){
 
@@ -32,7 +28,7 @@ public class AddMeeting2 extends AppCompatActivity {
         Data.mobj.setDescription(description.getText().toString());
         Data.mobj.setTopic(topic.getText().toString());
 
-        new AddMeetingConnections(this);
+        new AddMeetingConnections(this).execute();
         System.out.println("hellos after meeting");
         //new AddMeetingConnections(Data.mobj,this);
 

@@ -38,5 +38,9 @@ public class Data
     public static ArrayList<MeetingModel> mymeetings = new ArrayList<MeetingModel>();
     //enter meeting object
     public static MeetingModel mobj = new MeetingModel();
+    //network status
+    public static String networkstatus = "ok";
+    //dialog box for instructions
+    public static int showdialog = 1;
 
 }

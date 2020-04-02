@@ -12,9 +12,11 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.munazamfyp.Adapters.MeetingAdapter;
 import com.example.munazamfyp.AddMeeting;
+import com.example.munazamfyp.Connections.MeetingListConnection;
 import com.example.munazamfyp.DataModels.Data;
 import com.example.munazamfyp.DataModels.PageViewModel;
 import com.example.munazamfyp.DataModels.extendeditem;
@@ -59,6 +61,18 @@ public class MeetingView extends Fragment {
 
         root = inflater.inflate(R.layout.meeting_activity, container, false);
 
+
+        final SwipeRefreshLayout pullToRefresh = root.findViewById(R.id.pullToRefresh);
+        pullToRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                new MeetingListConnection(root.getContext()).execute();
+                recyclerAdapter = new MeetingAdapter(Meetingitem,root.getContext(),1);
+                recyclerView.setAdapter(recyclerAdapter);
+                // your code
+                pullToRefresh.setRefreshing(false);
+            }
+        });
 
 
         Meetingitem =new ArrayList<>();

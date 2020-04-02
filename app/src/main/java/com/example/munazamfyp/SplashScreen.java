@@ -33,11 +33,11 @@ public class SplashScreen extends AppCompatActivity {
             public void run() {
                 if(nam != null)
                 {
-                    new WorkloadConnection(SplashScreen.this).execute();
-                    new GetReminderConnection(SplashScreen.this).execute();
-                    new MeetingListConnection(SplashScreen.this).execute();
-                    new JoinedMeetingConnection(SplashScreen.this).execute();
-                    new GetMyMeetingConnection(SplashScreen.this).execute();
+//                    new WorkloadConnection(SplashScreen.this).execute();
+//                    new GetReminderConnection(SplashScreen.this).execute();
+//                    new MeetingListConnection(SplashScreen.this).execute();
+//                    new JoinedMeetingConnection(SplashScreen.this).execute();
+//                    new GetMyMeetingConnection(SplashScreen.this).execute();
                     Intent intent=new Intent(SplashScreen.this,ContinueAs.class);
                     startActivity(intent);
                 }

@@ -10,8 +10,11 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.example.munazamfyp.Adapters.ReminderAdapter;
 import com.example.munazamfyp.Adapters.WorkloadViewAdapter;
+import com.example.munazamfyp.Connections.GetReminderConnection;
 import com.example.munazamfyp.Connections.WorkloadConnection;
 import com.example.munazamfyp.DataModels.Data;
 import com.example.munazamfyp.DataModels.WorkloadViewModel;
@@ -56,11 +59,23 @@ public class WorkloadView extends Fragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root = inflater.inflate(R.layout.activity_workload_view, container, false);
+        final View root = inflater.inflate(R.layout.activity_workload_view, container, false);
 
         //new WorkloadConnection(root.getContext()).execute();
 
-        ArrayList<WorkloadViewModel> exampleList = new ArrayList<>();
+        final SwipeRefreshLayout pullToRefresh = root.findViewById(R.id.pullToRefresh);
+        pullToRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                new GetReminderConnection(root.getContext()).execute();
+                mAdapter=new WorkloadViewAdapter(list1,root.getContext());
+                mRecyclerView.setAdapter(mAdapter);
+                // your code
+                pullToRefresh.setRefreshing(false);
+            }
+        });
+
+        final ArrayList<WorkloadViewModel> exampleList = new ArrayList<>();
 
         if (Data.y == null) {
             TextView error = root.findViewById(R.id.textView9);

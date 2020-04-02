@@ -1,11 +1,16 @@
 package com.example.munazamfyp;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -23,13 +28,58 @@ import com.google.android.material.tabs.TabLayout;
 
 public class mainmenu extends AppCompatActivity {
     private DrawerLayout dl;
+    //private  Button button;
     private ActionBarDrawerToggle t;
     private NavigationView nv;
+    private CheckBox checkBox;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainmenu);
         Handler handler =new Handler();
+
+
+        if(Data.showdialog == 1)
+        {
+            final Dialog dialog = new Dialog(this);
+            dialog.setContentView(R.layout.custom);
+            dialog.setTitle("Title...");
+
+            // set the custom dialog components - text, image and button
+
+            ImageView image = (ImageView) dialog.findViewById(R.id.imageView);
+            ImageView image1 = (ImageView) dialog.findViewById(R.id.imageView2);
+            ImageView image2 = (ImageView) dialog.findViewById(R.id.imageView3);
+            ImageView image3 = (ImageView) dialog.findViewById(R.id.imageView4);
+
+            checkBox = dialog.findViewById(R.id.checkBox);
+
+
+
+            image.setImageResource(R.drawable.a1);
+            image1.setImageResource(R.drawable.q1);
+            image2.setImageResource(R.drawable.e1);
+            image3.setImageResource(R.drawable.p1);
+
+            Button dialogButton = (Button) dialog.findViewById(R.id.button);
+            // if button is clicked, close the custom dialog
+            dialogButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    if(checkBox.isChecked())
+                    {
+                        System.out.println("is checked");
+                        Data.showdialog = 0;
+                    }
+
+                    dialog.dismiss();
+                }
+            });
+
+            dialog.show();
+        }
+
 
         dl = (DrawerLayout)findViewById(R.id.navigation);
         t = new ActionBarDrawerToggle(this, dl,R.string.Open, R.string.Close);
