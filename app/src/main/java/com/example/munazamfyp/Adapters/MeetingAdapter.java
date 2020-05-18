@@ -26,7 +26,6 @@ import java.util.List;
 
 public class MeetingAdapter extends RecyclerView.Adapter<MeetingAdapter.MovieVH> {
 
-
     //helos from lotus
     int index;
     private static final String TAG = "MovieAdapter";
@@ -52,11 +51,12 @@ public class MeetingAdapter extends RecyclerView.Adapter<MeetingAdapter.MovieVH>
 
         extendeditem movie = movieList.get(position);
 
-        holder.titleTextView.setText(movie.getTopic());
+        holder.titleTextView.setText(""+movie.getTopic());
         holder.descriptionTextView.setText(movie.getDescription());
         holder.dateTextView.setText(movie.getDate());
         holder.timeTextView.setText(movie.getTime());
         holder.CapacityTextView.setText(movie.getCapacity());
+
         switch (index)
         {
             case 1:

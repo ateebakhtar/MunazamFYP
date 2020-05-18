@@ -106,13 +106,9 @@ public class mainmenu extends AppCompatActivity {
                         Intent i5 = new Intent(mainmenu.this,MyMeetingList.class);
                         startActivity(i5);
                         break;
-                    case R.id.account:
-                        Toast.makeText(mainmenu.this, "My Account",Toast.LENGTH_SHORT).show();
-                        Intent i  = new Intent(mainmenu.this,UserInformationActivity.class);
-                        startActivity(i);
-                        break;
                     case R.id.settings:
                         Toast.makeText(mainmenu.this, "Settings",Toast.LENGTH_SHORT).show();
+                        Intent i  = new Intent(mainmenu.this,UserInformationActivity.class);
                         break;
                     case R.id.logout:
                         Toast.makeText(mainmenu.this, "Logging Out",Toast.LENGTH_SHORT).show();

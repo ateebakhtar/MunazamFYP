@@ -19,10 +19,13 @@ import com.example.munazamfyp.DataModels.ReminderData;
 import com.example.munazamfyp.DataModels.ReminderItem;
 import com.example.munazamfyp.DataModels.date;
 import com.example.munazamfyp.DataModels.time;
+import com.marcinmoskala.arcseekbar.ArcSeekBar;
+import com.marcinmoskala.arcseekbar.ProgressListener;
 
 public class SetPriorityScreen extends AppCompatActivity {
     private static SeekBar seekBar;
     private static TextView textView;
+    ArcSeekBar ASB;
     int progressValue;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,34 +35,48 @@ public class SetPriorityScreen extends AppCompatActivity {
     }
     public void seekbar(){
 
-        seekBar = (SeekBar)findViewById(R.id.seekBar);
         textView = (TextView) findViewById(R.id.textView4);
-        textView.setText("Selection is: " + seekBar.getProgress() + "/" + seekBar.getMax());
-
-        seekBar.setOnSeekBarChangeListener(
-                new SeekBar.OnSeekBarChangeListener() {
+        ASB = findViewById(R.id.seekArc);
 
 
+        int[] color = getResources().getIntArray(R.array.gradident);
+        ASB.setProgressGradient(color);
+
+        ASB.setOnProgressChangedListener(
+                new ProgressListener() {
                     @Override
-                    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                        progressValue = progress;
-                        textView.setText("Selection is: " + progress + "/" + seekBar.getMax());
-                        Toast.makeText(SetPriorityScreen.this, "SeekBar in progress", Toast.LENGTH_LONG).show();
-                    }
-
-                    @Override
-                    public void onStartTrackingTouch(SeekBar seekBar) {
-                        Toast.makeText(SetPriorityScreen.this, "SeekBar in startTracking", Toast.LENGTH_LONG).show();
-                    }
-
-                    @Override
-                    public void onStopTrackingTouch(SeekBar seekBar) {
-
-                        textView.setText("Selection is: " + progressValue + "/" + seekBar.getMax());
-                        Toast.makeText(SetPriorityScreen.this, "SeekBar in stopTracking", Toast.LENGTH_LONG).show();
+                    public void invoke(int i) {
+                        if(i > 0 && i <= 20)
+                        {
+                            progressValue = 1;
+                            textView.setText("Selection is: " + 1 + "/ 5"  );
+                        }
+                        else if(i > 20 && i <= 40)
+                        {
+                            progressValue = 2;
+                            textView.setText("Selection is: " + 2 + "/ 5" );
+                        }
+                        else if(i > 40 && i <= 60)
+                        {
+                            progressValue = 3;
+                            textView.setText("Selection is: " + 3 + "/ 5" );
+                        }
+                        else if(i > 60 && i <= 80)
+                        {
+                            progressValue = 4;
+                            textView.setText("Selection is: " + 4 + "/ 5" );
+                        }
+                        else
+                        {
+                            progressValue = 5;
+                            textView.setText("Selection is: " + 5 + "/ 5" );
+                        }
                     }
                 }
         );
+
+
+
     }
     public void openlist(View view)
     {

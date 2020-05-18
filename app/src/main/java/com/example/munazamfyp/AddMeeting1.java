@@ -23,9 +23,7 @@ public class AddMeeting1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_meeting1);
 
-
     }
-
 
     public void openedit(View vie) {
         LayoutInflater li = LayoutInflater.from(this);

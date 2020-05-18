@@ -40,8 +40,7 @@ public class navigation extends AppCompatActivity {
                 int id = item.getItemId();
                 switch(id)
                 {
-                    case R.id.account:
-                        Toast.makeText(navigation.this, "My Account",Toast.LENGTH_SHORT).show();break;
+
                     case R.id.settings:
                         Toast.makeText(navigation.this, "Settings",Toast.LENGTH_SHORT).show();break;
                     case R.id.logout:

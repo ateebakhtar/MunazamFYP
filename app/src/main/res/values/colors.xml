@@ -8,6 +8,12 @@
     <color name="errorcheck">#FF0000</color>
     <color name="correct">#008000</color>
 
+    <array name="gradident">
+        <item>#b5fff6</item>
+        <item>#21def3</item>
+        <item>#21b8f3</item>
+        <item>#2196f3</item>
 
+    </array>
 
 </resources>

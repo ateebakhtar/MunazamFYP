@@ -6,37 +6,55 @@
     android:layout_height="match_parent"
     tools:context=".SetPriorityScreen">
 
+    <TextView
+        android:id="@+id/textView57"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="  Set Reminder"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="@color/colorAccent"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        android:typeface="sans"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.609"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.102" />
+
+
+
+    <com.marcinmoskala.arcseekbar.ArcSeekBar
+        android:id="@+id/seekArc"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.606"
+        app:progress="100"
+        app:progressBackgroundColor="@color/background"
+        app:progressBackgroundWidth="20dp"
+        app:progressWidth="20dp"
+        app:roundEdges="true" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="234dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="58dp"
-        android:layout_marginBottom="82dp"
         android:gravity="center"
         android:text="Set Priority"
         android:textColor="@color/colorAccent"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView4"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <SeekBar
-        android:id="@+id/seekBar"
-        style="@style/Widget.AppCompat.SeekBar.Discrete"
-        android:layout_width="222dp"
-        android:layout_height="62dp"
-        android:layout_marginStart="91dp"
-        android:layout_marginLeft="91dp"
-        android:max="5"
-        android:orientation="horizontal"
-        android:progress="3"
-        android:scrollbarStyle="outsideOverlay"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.241" />
 
     <TextView
         android:id="@+id/textView4"
@@ -47,22 +65,27 @@
         android:layout_marginRight="88dp"
         android:textColor="@color/colorAccent"
         android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.948"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.041" />
 
-    <Button
-        android:id="@+id/button23"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="103dp"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="16dp"
         android:onClick="openlist"
-        android:text="Next"
-        android:textColor="@color/buttontext"
+        android:src="@drawable/next_fab"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.915" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
