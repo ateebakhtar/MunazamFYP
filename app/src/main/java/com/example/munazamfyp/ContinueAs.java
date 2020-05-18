@@ -87,21 +87,27 @@ public class ContinueAs extends AppCompatActivity {
 
             Gson x = new Gson();
             ArrayList<String> temp = new ArrayList<>();
-            for(int i=0;i<Data.y.size();i++)
+            if(Data.y != null)
             {
-                String json = x.toJson(Data.y.get(i));
-                temp.add(json);
+                for(int i=0;i<Data.y.size();i++)
+                {
+                    String json = x.toJson(Data.y.get(i));
+                    temp.add(json);
+                }
             }
             Set<String> set = new HashSet<String>();
             set.addAll(temp);
             editor.putStringSet("workload", set);
 
             ArrayList<String> temp2 = new ArrayList<>();
-            for(int i=0;i<Data.x.size();i++)
+            if(Data.x != null)
             {
-                String json = x.toJson(Data.x.get(i));
-                System.out.println("Added data to reminder");
-                temp2.add(json);
+                for(int i=0;i<Data.x.size();i++)
+                {
+                    String json = x.toJson(Data.x.get(i));
+                    System.out.println("Added data to reminder");
+                    temp2.add(json);
+                }
             }
             Set<String> set1 = new HashSet<String>();
             set.addAll(temp2);

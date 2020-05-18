@@ -28,7 +28,7 @@
         android:layout_marginTop="324dp"
         android:onClick="showTimePickerDialog"
         android:tint="#2196F3"
-        app:layout_constraintBottom_toTopOf="@+id/button22"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -39,16 +39,15 @@
         android:id="@+id/button22"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
-        android:layout_marginBottom="121dp"
         android:onClick="OpenNext1"
         android:text="Next"
         android:textColor="@color/buttontext"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/imageView1"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.79" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

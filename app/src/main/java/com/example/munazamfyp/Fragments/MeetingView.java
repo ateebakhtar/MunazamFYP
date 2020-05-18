@@ -22,6 +22,7 @@ import com.example.munazamfyp.DataModels.PageViewModel;
 import com.example.munazamfyp.DataModels.extendeditem;
 import com.example.munazamfyp.EnterReminder;
 import com.example.munazamfyp.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +43,7 @@ public class MeetingView extends Fragment {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     public String th;
-    private Button B;
+    private FloatingActionButton B;
     private PageViewModel pageViewModel;
     View root;
 

@@ -24,6 +24,7 @@ import com.example.munazamfyp.DataModels.ReminderModel;
 import com.example.munazamfyp.EnterReminder;
 import com.example.munazamfyp.DataModels.PageViewModel;
 import com.example.munazamfyp.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
@@ -47,7 +48,7 @@ public class ReminderView extends Fragment
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     public String th;
-    private ImageButton B;
+    private FloatingActionButton B;
     private PageViewModel pageViewModel;
     View root;
 

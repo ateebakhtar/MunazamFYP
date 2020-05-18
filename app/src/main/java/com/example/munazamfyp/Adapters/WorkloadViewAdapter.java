@@ -112,12 +112,12 @@ public class WorkloadViewAdapter extends RecyclerView.Adapter<WorkloadViewAdapte
             exampleViewHolder.a.setImageResource(R.drawable.a1);
         }
 
-        if(currentItem.getImageResource2().equals("e0"))
+        if(currentItem.getImageResource2().equals("q0"))
         {
-            exampleViewHolder.a1.setImageResource(R.drawable.e);
+            exampleViewHolder.a1.setImageResource(R.drawable.q);
         }
         else        {
-            exampleViewHolder.a1.setImageResource(R.drawable.e1);
+            exampleViewHolder.a1.setImageResource(R.drawable.q1);
         }
 
         if(currentItem.getImageResource3().equals("p0"))
@@ -128,137 +128,15 @@ public class WorkloadViewAdapter extends RecyclerView.Adapter<WorkloadViewAdapte
             exampleViewHolder.a2.setImageResource(R.drawable.p1);
         }
 
-        if(currentItem.getImageResource4().equals("q0"))
+        if(currentItem.getImageResource4().equals("e0"))
         {
-            exampleViewHolder.a3.setImageResource(R.drawable.q);
+            exampleViewHolder.a3.setImageResource(R.drawable.e);
         }
         else        {
-            exampleViewHolder.a3.setImageResource(R.drawable.q1);
+            exampleViewHolder.a3.setImageResource(R.drawable.e1);
         }
 
-//
-//
-//
-//        if(currentItem.getImageResource2().equals("a0"))
-//        {
-//            exampleViewHolder.a1.setImageResource(R.drawable.a);
-//        }
-//        if(currentItem.getImageResource2().equals("a1"))
-//        {
-//            exampleViewHolder.a1.setImageResource(R.drawable.a1);
-//        }
-//        if(currentItem.getImageResource2().equals("e0"))
-//        {
-//            exampleViewHolder.a1.setImageResource(R.drawable.e);
-//        }
-//        if(currentItem.getImageResource2().equals("e1"))
-//        {
-//            exampleViewHolder.a1.setImageResource(R.drawable.e1);
-//        }
-//        if(currentItem.getImageResource2().equals("p0"))
-//        {
-//            exampleViewHolder.a1.setImageResource(R.drawable.p);
-//        }
-//        if(currentItem.getImageResource2().equals("p1"))
-//        {
-//            exampleViewHolder.a1.setImageResource(R.drawable.p1);
-//        }
-//        if(currentItem.getImageResource2().equals("q0"))
-//        {
-//            exampleViewHolder.a1.setImageResource(R.drawable.q);
-//        }
-//        if(currentItem.getImageResource2().equals("q1"))
-//        {
-//            exampleViewHolder.a1.setImageResource(R.drawable.q1);
-//        }
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//        if(currentItem.getImageResource3().equals("a0"))
-//        {
-//            exampleViewHolder.a2.setImageResource(R.drawable.a);
-//        }
-//        if(currentItem.getImageResource3().equals("a1"))
-//        {
-//            exampleViewHolder.a2.setImageResource(R.drawable.a1);
-//        }
-//        if(currentItem.getImageResource3().equals("e0"))
-//        {
-//            exampleViewHolder.a2.setImageResource(R.drawable.e);
-//        }
-//        if(currentItem.getImageResource3().equals("e1"))
-//        {
-//            exampleViewHolder.a2.setImageResource(R.drawable.e1);
-//        }
-//        if(currentItem.getImageResource3().equals("p0"))
-//        {
-//            exampleViewHolder.a2.setImageResource(R.drawable.p);
-//        }
-//        if(currentItem.getImageResource3().equals("p1"))
-//        {
-//            exampleViewHolder.a2.setImageResource(R.drawable.p1);
-//        }
-//        if(currentItem.getImageResource3().equals("q0"))
-//        {
-//            exampleViewHolder.a2.setImageResource(R.drawable.q);
-//        }
-//        if(currentItem.getImageResource3().equals("q1"))
-//        {
-//            exampleViewHolder.a2.setImageResource(R.drawable.q1);
-//        }
-//
-//
-//
-//
-//        if(currentItem.getImageResource4().equals("a0"))
-//        {
-//            exampleViewHolder.a3.setImageResource(R.drawable.a);
-//        }
-//        if(currentItem.getImageResource4().equals("a1"))
-//        {
-//            exampleViewHolder.a3.setImageResource(R.drawable.a1);
-//        }
-//        if(currentItem.getImageResource4().equals("e0"))
-//        {
-//            exampleViewHolder.a3.setImageResource(R.drawable.e);
-//        }
-//        if(currentItem.getImageResource4().equals("e1"))
-//        {
-//            exampleViewHolder.a3.setImageResource(R.drawable.e1);
-//        }
-//        if(currentItem.getImageResource4().equals("p0"))
-//        {
-//            exampleViewHolder.a3.setImageResource(R.drawable.p);
-//        }
-//        if(currentItem.getImageResource4().equals("p1"))
-//        {
-//            exampleViewHolder.a3.setImageResource(R.drawable.p1);
-//        }
-//        if(currentItem.getImageResource4().equals("q0"))
-//        {
-//            exampleViewHolder.a3.setImageResource(R.drawable.q);
-//        }
-//        if(currentItem.getImageResource4().equals("q1"))
-//        {
-//            exampleViewHolder.a3.setImageResource(R.drawable.q1);
-//        }
-//
-
-
-
         exampleViewHolder.ab.setText(currentItem.getEdittext1());
-
-
-
-
-
-
     }
 
     @Override

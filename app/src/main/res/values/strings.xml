@@ -23,6 +23,7 @@
     <string name="menu_send">Send</string>
 
     <string name="show_dialog">Show Dialog</string>
+    <string name="set_date_and_time">Set Date and Time</string>
     <string-array name="CS">
         <item> Please Select Class…</item>
         <item> E1 </item>

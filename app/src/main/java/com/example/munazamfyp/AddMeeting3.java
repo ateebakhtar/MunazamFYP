@@ -34,8 +34,7 @@ public class AddMeeting3 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_meeting3);
-    }
+        setContentView(R.layout.activity_add_meeting3);    }
 
     void openmain(View view)
     {
