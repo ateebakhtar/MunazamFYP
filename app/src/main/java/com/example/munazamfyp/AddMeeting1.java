@@ -3,8 +3,10 @@ package com.example.munazamfyp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,10 +20,19 @@ import com.example.munazamfyp.DataModels.Data;
 public class AddMeeting1 extends AppCompatActivity {
     Spinner spin;
     Spinner spin1;
+    EditText hostid;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_meeting1);
+        hostid = findViewById(R.id.hostid);
+        hostid.setClickable(false);
+        hostid.setFocusable(false);
+        SharedPreferences sharedpreferences = getSharedPreferences("Login", Context.MODE_PRIVATE);
+        String nam = sharedpreferences.getString("name","x");
+
+        hostid.setText(nam);
 
     }
 
@@ -193,7 +204,7 @@ public class AddMeeting1 extends AppCompatActivity {
     public void OpenNext(View view){
 
         EditText name = findViewById(R.id.editText2);
-        EditText id = findViewById(R.id.editText);
+        EditText id = findViewById(R.id.hostid);
 
         Data.mobj.setUniid(id.getText().toString());
         Data.mobj.setName(name.getText().toString());

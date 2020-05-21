@@ -34,26 +34,26 @@ public class navigation extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         nv = (NavigationView)findViewById(R.id.nv);
-        nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                int id = item.getItemId();
-                switch(id)
-                {
-
-                    case R.id.settings:
-                        Toast.makeText(navigation.this, "Settings",Toast.LENGTH_SHORT).show();break;
-                    case R.id.logout:
-                        Toast.makeText(navigation.this, "My Cart",Toast.LENGTH_SHORT).show();break;
-                    default:
-                        return true;
-                }
-
-
-                return true;
-
-            }
-        });
+//        nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+//            @Override
+//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//                int id = item.getItemId();
+//                switch(id)
+//                {
+//
+//                    case R.id.settings:
+//                        Toast.makeText(navigation.this, "Settings",Toast.LENGTH_SHORT).show();break;
+//                    case R.id.logout:
+//                        Toast.makeText(navigation.this, "My Cart",Toast.LENGTH_SHORT).show();break;
+//                    default:
+//                        return true;
+//                }
+//
+//
+//                return true;
+//
+//            }
+//        });
 
 
     }

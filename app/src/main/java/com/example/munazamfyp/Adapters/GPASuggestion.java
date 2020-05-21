@@ -29,7 +29,7 @@ public class GPASuggestion{
             //this is a hardcoded semester which would be get directly from database inn spring//
 
 
-            expected = 3.5;
+            //expected = 3.5;
             cgpa = calculate(gpa,credit);
             System.out.println("GPA = "+cgpa);
             //a would be used to create and object so that we can calculate the gpa of  each semester individually//

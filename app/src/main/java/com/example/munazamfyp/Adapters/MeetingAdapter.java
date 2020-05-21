@@ -3,6 +3,7 @@ package com.example.munazamfyp.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,10 +48,11 @@ public class MeetingAdapter extends RecyclerView.Adapter<MeetingAdapter.MovieVH>
 
 
     @Override
-    public void onBindViewHolder(@NonNull MovieVH holder, final int position) {
+    public void onBindViewHolder(@NonNull  MovieVH holder, final int position) {
 
         extendeditem movie = movieList.get(position);
-
+        SharedPreferences sharedpreferences = cx.getSharedPreferences("Login", Context.MODE_PRIVATE);
+        final String nam = sharedpreferences.getString("name","x");
         holder.titleTextView.setText(""+movie.getTopic());
         holder.descriptionTextView.setText(movie.getDescription());
         holder.dateTextView.setText(movie.getDate());
@@ -64,7 +66,8 @@ public class MeetingAdapter extends RecyclerView.Adapter<MeetingAdapter.MovieVH>
                 holder.joinmeeting.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        new JoinMeetingConnection(new AttendeesModel(1,1, Data.validid,Data.semester),cx).execute();
+
+                        new JoinMeetingConnection(new AttendeesModel(Integer.parseInt(movieList.get(position).getId()),Integer.parseInt(movieList.get(position).getId()), nam,nam),cx).execute();
                     }
                 });
                 break;

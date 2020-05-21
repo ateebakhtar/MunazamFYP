@@ -65,7 +65,7 @@ public class GetReminderConnection extends AsyncTask<Void, Void, Void>
                 .build();
         ReminderInterface GDS = m.create(ReminderInterface.class);
         //JsonReader.setLenient(true);
-        Call<ArrayList<ReminderModel>> call = GDS.getdata("1");
+        Call<ArrayList<ReminderModel>> call = GDS.getdata(Data.status);
         //Call<String> call = GDS.Get(id);
         Response<ArrayList<ReminderModel>> x = null;
         try {

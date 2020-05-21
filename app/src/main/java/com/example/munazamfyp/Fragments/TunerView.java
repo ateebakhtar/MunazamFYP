@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
@@ -82,24 +84,35 @@ public class TunerView extends Fragment
     }
     public void openreminder()
     {
+        EditText gpax = root.findViewById(R.id.editText8);
         int counter = 0;
         DecimalFormat df = new DecimalFormat("0.00");
         System.out.println("Hello");
         GPASuggestion x = new GPASuggestion();
-        double[] result = x.suggest(3.5,movieAdapter.getVal(),3);
-
-        for(int i=0;i<8;i++)
+        double gpa = Double.parseDouble(gpax.getText().toString());
+        if(gpa <= 4 && gpa >0 )
         {
-            if(result[i*7] != -1 || result[i*7+1] != -1 || result[i*7+2] != -1 || result[i*7+3] != -1 || result[i*7+4] != -1 || result[i*7+5] != -1 || result[i*7+6] != -1)
+            double[] result = x.suggest(gpa,movieAdapter.getVal(),3);
+
+            for(int i=0;i<8;i++)
             {
-                counter++;
+                if(result[i*7] != -1 || result[i*7+1] != -1 || result[i*7+2] != -1 || result[i*7+3] != -1 || result[i*7+4] != -1 || result[i*7+5] != -1 || result[i*7+6] != -1)
+                {
+                    counter++;
+                }
             }
+            System.out.println("GPAPAPAPAPAAPA"+gpa);
+            movieAdapter.setflag(counter);
+            System.out.println();
+            movieAdapter.setNewval(result);
+            recyclerView.setAdapter(movieAdapter);
+        }
+        else
+        {
+            Toast.makeText(root.getContext(), "Enter a Valid GPA", Toast.LENGTH_SHORT).show();
         }
 
-        movieAdapter.setflag(counter);
-        System.out.println();
-        movieAdapter.setNewval(result);
-        recyclerView.setAdapter(movieAdapter);
+
     }
 
 }

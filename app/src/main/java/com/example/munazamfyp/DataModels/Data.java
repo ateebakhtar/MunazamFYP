@@ -8,7 +8,7 @@ public class Data
 {
     public static String code;
     //holds the primary key id of the user
-    public static String status = "1";
+    public static String status = "notok";
 
     public static int user = 1;
     //valid login or not
@@ -42,5 +42,7 @@ public class Data
     public static String networkstatus = "ok";
     //dialog box for instructions
     public static int showdialog = 1;
+    //for notification of and on
+    public static int noficationstatus = 0;
 
 }

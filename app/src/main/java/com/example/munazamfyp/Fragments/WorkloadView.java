@@ -67,7 +67,7 @@ public class WorkloadView extends Fragment
         pullToRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                new GetReminderConnection(root.getContext()).execute();
+                new WorkloadConnection(root.getContext()).execute();
                 mAdapter=new WorkloadViewAdapter(list1,root.getContext());
                 mRecyclerView.setAdapter(mAdapter);
                 // your code

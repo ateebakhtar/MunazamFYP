@@ -102,8 +102,7 @@ public class WorkloadDetailAdapter extends RecyclerView.Adapter<WorkloadDetailAd
                                 UpdateWorkloadConnection OP = new UpdateWorkloadConnection(currentItem.getId(),c);
                                 OP.execute();
                                 new WorkloadConnection(view.getContext()).execute();
-                                Intent i = new Intent(c, MainActivity.class);
-                                c.startActivity(i);
+
                                 //Yes button clicked
                                 break;
 

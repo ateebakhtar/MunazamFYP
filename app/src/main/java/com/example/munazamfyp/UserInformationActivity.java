@@ -1,14 +1,18 @@
 package com.example.munazamfyp;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -21,6 +25,15 @@ public class UserInformationActivity extends AppCompatActivity
 
     private Button B;
     private Button edit;
+
+    EditText name;
+    EditText ID;
+    EditText password;
+
+    ToggleButton notifiaction;
+    ToggleButton hints;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -36,8 +49,45 @@ public class UserInformationActivity extends AppCompatActivity
             }
         });
 
+        ID = findViewById(R.id.uniid);
+        notifiaction = findViewById(R.id.toggleButton2);
+        hints = findViewById(R.id.toggleButton);
 
+        notifiaction.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    Toast.makeText(UserInformationActivity.this, "Notifications Turned on", Toast.LENGTH_SHORT).show();
+                    Data.noficationstatus = 1;
+                } else {
+                    Toast.makeText(UserInformationActivity.this, "Notifications Turned Off", Toast.LENGTH_SHORT).show();
+                    Data.noficationstatus = 0;
+                }
+            }
+        });
 
+        hints.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    Toast.makeText(UserInformationActivity.this, "Hints Turned on", Toast.LENGTH_SHORT).show();
+                    Data.showdialog = 1;
+                } else {
+                    Toast.makeText(UserInformationActivity.this, "Hints Turned Off", Toast.LENGTH_SHORT).show();
+                    Data.showdialog = 1;
+                }
+            }
+        });
+
+        SharedPreferences sharedpreferences = getSharedPreferences("Login", Context.MODE_PRIVATE);
+        String nam = sharedpreferences.getString("name","x");
+
+        ID.setText(nam);
+
+    }
+
+    public void openselectcourses(View view)
+    {
+        Intent i = new Intent(this,SelectCourses.class);
+        startActivity(i);
     }
 
     public void openedit()

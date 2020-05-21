@@ -6,6 +6,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.SeekBar;
@@ -27,10 +28,15 @@ public class SetPriorityScreen extends AppCompatActivity {
     private static TextView textView;
     ArcSeekBar ASB;
     int progressValue;
+    String nam = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_priority_screen);
+
+        SharedPreferences sharedpreferences = getSharedPreferences("Login", Context.MODE_PRIVATE);
+        nam = sharedpreferences.getString("name","x");
+
         seekbar();
     }
     public void seekbar(){
@@ -106,7 +112,9 @@ public class SetPriorityScreen extends AppCompatActivity {
                             //edit button clicked
                             //open enter reminder screen
                             //remove the item aswell
-                            SetReminderConnection x = new SetReminderConnection(ri,""+progressValue,SetPriorityScreen.this);
+
+
+                            SetReminderConnection x = new SetReminderConnection(ri,""+progressValue,SetPriorityScreen.this,nam);
                             x.execute();
 
                             System.out.println("dadadada" + Data.RID);
@@ -122,7 +130,7 @@ public class SetPriorityScreen extends AppCompatActivity {
                         case DialogInterface.BUTTON_NEGATIVE:
                             //delete button clicked
                             //open reminder screen
-                            SetReminderConnection x1 = new SetReminderConnection(ri,""+progressValue,SetPriorityScreen.this);
+                            SetReminderConnection x1 = new SetReminderConnection(ri,""+progressValue,SetPriorityScreen.this,nam);
                             x1.execute();
                             Data.RID = null;
 
@@ -140,7 +148,7 @@ public class SetPriorityScreen extends AppCompatActivity {
         }
         else
         {
-            SetReminderConnection x = new SetReminderConnection(ri,""+progressValue,SetPriorityScreen.this);
+            SetReminderConnection x = new SetReminderConnection(ri,""+progressValue,SetPriorityScreen.this,nam);
             x.execute();
 
             Intent i = new Intent(this,mainmenu.class);

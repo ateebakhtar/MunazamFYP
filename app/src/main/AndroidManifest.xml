@@ -46,15 +46,18 @@
         <activity android:name=".UserInformationActivity" />
         <activity
             android:name=".ContinueAs"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".SplashScreen"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".mainmenu" />
+        <activity android:name=".mainmenu"
+            android:screenOrientation="portrait"/>
         <activity android:name=".WorkloadView" />
         <activity android:name=".EnterWorkloadata" />
         <activity android:name=".EnterReminder" />
-        <activity android:name=".ReminderView" />
+        <activity android:name=".ReminderView"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Login"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -71,6 +74,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
     </application>
 
 </manifest>

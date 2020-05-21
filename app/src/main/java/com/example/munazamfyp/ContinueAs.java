@@ -33,14 +33,15 @@ import java.util.Set;
 
 public class ContinueAs extends AppCompatActivity {
 
+    String nam;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_continue_as);
 
         SharedPreferences sharedpreferences = getSharedPreferences("Login", Context.MODE_PRIVATE);
-        String nam = sharedpreferences.getString("name","x");
-
+        nam = sharedpreferences.getString("name","x");
+        Data.status = sharedpreferences.getString("id","x");
         new GetConnectionConnection(this).execute();
 
         if(Data.networkstatus.equals("notok"))
@@ -80,7 +81,7 @@ public class ContinueAs extends AppCompatActivity {
             new GetReminderConnection(this).execute();
             new MeetingListConnection(this).execute();
             new JoinedMeetingConnection(this).execute();
-            new GetMyMeetingConnection(this).execute();
+            new GetMyMeetingConnection(this,nam).execute();
 
             SharedPreferences sharedpreferences = getSharedPreferences("ofline", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedpreferences.edit();

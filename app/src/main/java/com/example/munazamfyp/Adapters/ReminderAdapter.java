@@ -119,8 +119,7 @@ public class ReminderAdapter extends RecyclerView.Adapter<ReminderAdapter.Exampl
                                 //delete button clicked
                                 //open reminder screen
                                 new ReminderDeleteConnection(currentItem.getId(),view.getContext()).execute();
-                                Intent i1 = new Intent(view.getContext(),MainActivity.class);
-                                view.getContext().startActivity(i1);
+
                                 break;
                         }
                     }

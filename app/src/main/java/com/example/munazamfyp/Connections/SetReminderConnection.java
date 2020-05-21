@@ -23,6 +23,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class SetReminderConnection extends AsyncTask<Void, Void, Void>
 {
+    String ID;
     String prio = "5";
     public SetReminderConnection()
     {
@@ -42,11 +43,12 @@ public class SetReminderConnection extends AsyncTask<Void, Void, Void>
     protected void onPreExecute() {
         progressDialog = ProgressDialog.show(cx, "ProgressDialog", "Wait for "+ " seconds");
     }
-    public SetReminderConnection(ReminderItem RI,String prio,Context context)
+    public SetReminderConnection(ReminderItem RI,String prio,Context context,String id)
     {
         cx = context;
         this.RI = RI;
         this.prio = prio;
+        this.ID = id;
     }
 
     @Override
@@ -71,7 +73,7 @@ public class SetReminderConnection extends AsyncTask<Void, Void, Void>
 
         ReminderInterface GDS = m.create(ReminderInterface.class);
         //JsonReader.setLenient(true);
-        Call<String> call = GDS.putdata("1",RI.typw,RI.date,RI.time,RI.coursename,prio);
+        Call<String> call = GDS.putdata(Data.status,RI.typw,RI.date,RI.time,RI.coursename,prio);
         //Call<String> call = GDS.Get(id);
         Response<String> x = null;
         try {

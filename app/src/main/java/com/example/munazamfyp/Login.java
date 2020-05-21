@@ -54,33 +54,40 @@ public class Login extends AppCompatActivity {
         {
             new SIgninConnection(name.getText().toString(),pass.getText().toString(),this).execute();
 
-            if(!Data.status.equals("notok"))
-            {
-                Toast.makeText(Login.this, "Welcome", Toast.LENGTH_SHORT).show();
-                UserData.name = name.getText().toString();
-                UserData.password = pass.getText().toString();
-//                new WorkloadConnection(Login.this).execute();
-//                new GetReminderConnection(Login.this).execute();
-//                new MeetingListConnection(Login.this).execute();
-//                new JoinedMeetingConnection(this).execute();
-//                new GetMyMeetingConnection(this).execute();
-                System.out.println("id == "+Data.status);
+            handler =new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run()
+                {
+                    if(!Data.status.equals("notok"))
+                    {
+                        Toast.makeText(Login.this, "Welcome", Toast.LENGTH_SHORT).show();
+                        UserData.name = name.getText().toString();
+                        UserData.password = pass.getText().toString();
 
-                SharedPreferences sharedpreferences = getSharedPreferences("Login", Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedpreferences.edit();
-                editor.putString("id",Data.status);
-                editor.putString("name", name.getText().toString());
-                editor.apply();
+                        System.out.println("id == "+Data.status);
+                        System.out.println(("Vlaid "+Data.validid)+" "+Data.status);
+                        SharedPreferences sharedpreferences = getSharedPreferences("Login", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedpreferences.edit();
+                        editor.putString("id",Data.status);
+                        editor.putString("name", name.getText().toString());
+                        editor.apply();
 
-                Intent i = new Intent(Login.this,mainmenu.class);
-                startActivity(i);
-            }
-            else
-            {
-                Toast.makeText(Login.this,"Incorrecnt ID or Password",Toast.LENGTH_SHORT).show();
-                name.setError("Incorrecnt ID or Password");
-                pass.setError("Incorrecnt ID or Password");
-            }
+                        Intent i = new Intent(Login.this,mainmenu.class);
+                        startActivity(i);
+                    }
+                    else
+                    {
+                        Toast.makeText(Login.this,"Incorrecnt ID or Password",Toast.LENGTH_SHORT).show();
+                        name.setError("Incorrecnt ID or Password");
+                        pass.setError("Incorrecnt ID or Password");
+                    }
+
+
+                }
+            },1500);
+
+
 
         }
 

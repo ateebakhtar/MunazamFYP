@@ -334,7 +334,6 @@ public class TunerAdapter extends RecyclerView.Adapter<TunerAdapter.TunerAH>
         Spinner x;
 
         TextView cgpa;
-        TextView sgpa;
         TextView semester;
         Button calculategpa;
         TextView[] grades = new TextView[7];
@@ -353,7 +352,6 @@ public class TunerAdapter extends RecyclerView.Adapter<TunerAdapter.TunerAH>
             super(itemView);
 
             cgpa = itemView.findViewById(R.id.textView28);
-            sgpa = itemView.findViewById(R.id.textView30);
             semester = itemView.findViewById(R.id.textView25);
             expandableLayout = itemView.findViewById(R.id.constraintLayout3);
             calculategpa = itemView.findViewById(R.id.button20);
@@ -396,10 +394,11 @@ public class TunerAdapter extends RecyclerView.Adapter<TunerAdapter.TunerAH>
 
                 }
                 GPASuggestion x = new GPASuggestion();
+
                 double gpa = x.calculate(arr,cr);
-                sgpa.setText(""+gpa);
 
                 gpa = x.calculate(val,val);
+
                 cgpa.setText(""+gpa);
                 }
             });

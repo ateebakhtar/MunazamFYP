@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.example.munazamfyp.Adapters.MeetingAdapter;
 import com.example.munazamfyp.DataModels.Data;
@@ -41,14 +42,21 @@ public class JoinedMeetinList extends AppCompatActivity {
 
 
 
-        System.out.println("excuting meeting"+Data.joinedmeeting.get(0).getTopic());
+        //System.out.println("excuting meeting"+Data.joinedmeeting.get(0).getTopic());
+        if(Data.joinedmeeting.isEmpty())
+        {
+            Toast.makeText(this, "No items in list", Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+            recyclerView = findViewById(R.id.recyclerView4);
+            mLayoutManager = new LinearLayoutManager(this);
+            recyclerView.setLayoutManager(mLayoutManager);
+            recyclerAdapter = new MeetingAdapter(Meetingitem,this,3);
+            recyclerView.setAdapter(recyclerAdapter);
 
+        }
 
-        recyclerView = findViewById(R.id.recyclerView4);
-        mLayoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerAdapter = new MeetingAdapter(Meetingitem,this,3);
-        recyclerView.setAdapter(recyclerAdapter);
 
     }
 }
