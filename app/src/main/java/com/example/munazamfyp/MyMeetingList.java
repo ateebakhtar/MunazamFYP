@@ -24,7 +24,7 @@ public class MyMeetingList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_meeting_list);
 
-        new AttendeesListConnection(this).execute();
+        //new AttendeesListConnection(this).execute();
 
         RecyclerView recyclerView;
         MeetingAdapter recyclerAdapter;

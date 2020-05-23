@@ -69,8 +69,16 @@ public class UserInformationActivity extends AppCompatActivity
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     Toast.makeText(UserInformationActivity.this, "Hints Turned on", Toast.LENGTH_SHORT).show();
+                    SharedPreferences sharedpreferences = getSharedPreferences("DialogBox", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedpreferences.edit();
+                    editor.putString("Status","1");
+                    editor.apply();
                     Data.showdialog = 1;
                 } else {
+                    SharedPreferences sharedpreferences = getSharedPreferences("DialogBox", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedpreferences.edit();
+                    editor.putString("Status","0");
+                    editor.apply();
                     Toast.makeText(UserInformationActivity.this, "Hints Turned Off", Toast.LENGTH_SHORT).show();
                     Data.showdialog = 1;
                 }

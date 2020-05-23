@@ -66,7 +66,7 @@ public class GetSemester extends AsyncTask<Void, Void, Void>
         final LoginInterface GDS = m.create(LoginInterface.class);
 
         final Response<String>[] x = new Response[]{null};
-        final Call<String>[] call = new Call[]{GDS.getsemester("3011")};
+        final Call<String>[] call = new Call[]{GDS.getsemester(Data.status)};
 
         try {
             x[0] = call[0].execute();

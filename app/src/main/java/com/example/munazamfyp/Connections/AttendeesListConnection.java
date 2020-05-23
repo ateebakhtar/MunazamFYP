@@ -23,8 +23,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class AttendeesListConnection extends AsyncTask<Void,Void,Void>
 {
-    public AttendeesListConnection( Context context) {
+    String ID;
+    public AttendeesListConnection( Context context,String idd)  {
         this.cx = context;
+        this.ID = idd;
     }
     MeetingModel mm;
     Context cx;
@@ -67,8 +69,8 @@ public class AttendeesListConnection extends AsyncTask<Void,Void,Void>
         //JsonReader.setLenient(true);
         //@GET("/meeting/{course}/{name}/{id}/{venue}/{time}/{date}/{capacity}/{topic}/{description}")
         //hello
-        String id = ""+1;
-        Call<ArrayList<AttendeesModel>> call = GDS.getattendees(id);
+//        String id = ""+1;
+        Call<ArrayList<AttendeesModel>> call = GDS.getattendees(ID);
         //Call<String> call = GDS.Get(id);
         Response<ArrayList<AttendeesModel>> x = null;
         try

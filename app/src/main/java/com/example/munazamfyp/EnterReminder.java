@@ -59,33 +59,73 @@ public class EnterReminder extends AppCompatActivity {
         new GetCourses(this,"asd","1").execute();
 
         spin1 = (Spinner) findViewById(R.id.spinner2);
+        if(Data.semester.equals("1"))
+        {
+            ArrayAdapter adapter1 = new ArrayAdapter(getApplicationContext(),android.R.layout.simple_list_item_1 ,getResources().getStringArray(R.array.s1) );
+            spin1.setAdapter(adapter1);
+        }
+        else if(Data.semester.equals("2"))
+        {
+            ArrayAdapter adapter1 = new ArrayAdapter(getApplicationContext(),android.R.layout.simple_list_item_1 ,getResources().getStringArray(R.array.s2) );
+            spin1.setAdapter(adapter1);
+        }
+        else if(Data.semester.equals("3"))
+        {
+            ArrayAdapter adapter1 = new ArrayAdapter(getApplicationContext(),android.R.layout.simple_list_item_1 ,getResources().getStringArray(R.array.s3) );
+            spin1.setAdapter(adapter1);
+        }
+        else if(Data.semester.equals("4"))
+        {
+            ArrayAdapter adapter1 = new ArrayAdapter(getApplicationContext(),android.R.layout.simple_list_item_1 ,getResources().getStringArray(R.array.s4) );
+            spin1.setAdapter(adapter1);
+        }
+        else if(Data.semester.equals("5"))
+        {
+            ArrayAdapter adapter1 = new ArrayAdapter(getApplicationContext(),android.R.layout.simple_list_item_1 ,getResources().getStringArray(R.array.s5) );
+            spin1.setAdapter(adapter1);
+        }
+        else if(Data.semester.equals("6"))
+        {
+            ArrayAdapter adapter1 = new ArrayAdapter(getApplicationContext(),android.R.layout.simple_list_item_1 ,getResources().getStringArray(R.array.s6) );
+            spin1.setAdapter(adapter1);
+        }
+        else if(Data.semester.equals("7"))
+        {
+            ArrayAdapter adapter1 = new ArrayAdapter(getApplicationContext(),android.R.layout.simple_list_item_1 ,getResources().getStringArray(R.array.s7) );
+            spin1.setAdapter(adapter1);
+        }
+        else
+        {
+            ArrayAdapter adapter1 = new ArrayAdapter(getApplicationContext(),android.R.layout.simple_list_item_1 ,getResources().getStringArray(R.array.s8) );
+            spin1.setAdapter(adapter1);
+        }
 
-        Handler handler =new Handler();
-        ArrayAdapter adapter1 = new ArrayAdapter(getApplicationContext(),android.R.layout.simple_list_item_1 ,getResources().getStringArray(R.array.s1) );
-
-
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                System.out.println(":in the handler");
-                System.out.println("sideewgqg "+Data.courses.size());
-                final String[] obj = new String[Data.x1.size()];
-                for(int i=0;i<Data.x1.size();i++)
-                {
-                    System.out.println("Loopingg");
-                    obj[i] = Data.x1.get(i).getName();
-                    System.out.println("wtf "+obj[i]);
-                }
-
-                // System.out.println("Data"+Data.courses.get(2).getName());
-                ArrayAdapter adapter1 = new ArrayAdapter(getApplicationContext(),android.R.layout.simple_list_item_1 ,obj );
-
-                //spin1.setAdapter(adapter1);
-            }
-        },1000);
-
-
-        spin1.setAdapter(adapter1);
+//        Handler handler =new Handler();
+//
+//
+//
+//        handler.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                System.out.println(":in the handler");
+//                System.out.println("sideewgqg "+Data.courses.size());
+//                final String[] obj = new String[Data.x1.size()];
+//                for(int i=0;i<Data.x1.size();i++)
+//                {
+//                    System.out.println("Loopingg");
+//                    obj[i] = Data.x1.get(i).getName();
+//                    System.out.println("wtf "+obj[i]);
+//                }
+//
+//                // System.out.println("Data"+Data.courses.get(2).getName());
+//                ArrayAdapter adapter1 = new ArrayAdapter(getApplicationContext(),android.R.layout.simple_list_item_1 ,obj );
+//
+//                //spin1.setAdapter(adapter1);
+//            }
+//        },1000);
+//
+//
+//        spin1.setAdapter(adapter1);
     }
     float ele = 35;
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)

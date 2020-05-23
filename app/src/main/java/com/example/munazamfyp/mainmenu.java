@@ -21,6 +21,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.munazamfyp.Adapters.TabsPagerAdapter;
 import com.example.munazamfyp.Connections.GetReminderConnection;
+import com.example.munazamfyp.Connections.JoinedMeetingConnection;
 import com.example.munazamfyp.Connections.WorkloadConnection;
 import com.example.munazamfyp.DataModels.Data;
 import com.google.android.material.navigation.NavigationView;
@@ -38,8 +39,9 @@ public class mainmenu extends AppCompatActivity {
         setContentView(R.layout.activity_mainmenu);
         Handler handler =new Handler();
 
-
-        if(Data.showdialog == 1)
+        SharedPreferences sharedpreferences = getSharedPreferences("DialogBox", Context.MODE_PRIVATE);
+        String stat = sharedpreferences.getString("Status","x");
+        if(!stat.equals("0"))
         {
             final Dialog dialog = new Dialog(this);
             dialog.setContentView(R.layout.custom);
@@ -70,6 +72,10 @@ public class mainmenu extends AppCompatActivity {
                     if(checkBox.isChecked())
                     {
                         System.out.println("is checked");
+                        SharedPreferences sharedpreferences = getSharedPreferences("DialogBox", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedpreferences.edit();
+                        editor.putString("Status","0");
+                        editor.apply();
                         Data.showdialog = 0;
                     }
 
@@ -98,6 +104,9 @@ public class mainmenu extends AppCompatActivity {
                 {
                     case R.id.joined:
                         Toast.makeText(mainmenu.this, "Joined Meetins", Toast.LENGTH_SHORT).show();
+                        SharedPreferences sharedpreferences = getSharedPreferences("Login", Context.MODE_PRIVATE);
+                        String nam = sharedpreferences.getString("name","x");
+                        new JoinedMeetingConnection(mainmenu.this,nam).execute();
                         Intent i4 = new Intent(mainmenu.this,JoinedMeetinList.class);
                         startActivity(i4);
                         break;
@@ -113,8 +122,8 @@ public class mainmenu extends AppCompatActivity {
                         break;
                     case R.id.logout:
                         Toast.makeText(mainmenu.this, "Logging Out",Toast.LENGTH_SHORT).show();
-                        SharedPreferences sharedpreferences = getSharedPreferences("Login", Context.MODE_PRIVATE);
-                        SharedPreferences.Editor editor = sharedpreferences.edit();
+                        SharedPreferences sharedpreferences1 = getSharedPreferences("Login", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedpreferences1.edit();
                         editor.putString("id", null);
                         editor.putString("name", null);
                         editor.apply();

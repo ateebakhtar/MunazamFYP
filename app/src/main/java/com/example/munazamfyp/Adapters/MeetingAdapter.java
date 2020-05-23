@@ -77,7 +77,7 @@ public class MeetingAdapter extends RecyclerView.Adapter<MeetingAdapter.MovieVH>
                     @Override
                     public void onClick(View v) {
                         Intent i = new Intent(cx, AttendeeList.class);
-                        new AttendeesListConnection(cx).execute();
+                        new AttendeesListConnection(cx,movieList.get(position).getId()).execute();
                         cx.startActivity(i);
                     }
                 });

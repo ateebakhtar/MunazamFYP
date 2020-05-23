@@ -13,12 +13,18 @@ import android.widget.Toast;
 
 import com.example.munazamfyp.Connections.GetMyMeetingConnection;
 import com.example.munazamfyp.Connections.GetReminderConnection;
+import com.example.munazamfyp.Connections.GetSemester;
 import com.example.munazamfyp.Connections.JoinedMeetingConnection;
 import com.example.munazamfyp.Connections.MeetingListConnection;
 import com.example.munazamfyp.Connections.SIgninConnection;
 import com.example.munazamfyp.Connections.WorkloadConnection;
 import com.example.munazamfyp.DataModels.Data;
 import com.example.munazamfyp.DataModels.UserData;
+import com.google.gson.Gson;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Login extends AppCompatActivity {
     Handler handler;
@@ -72,6 +78,54 @@ public class Login extends AppCompatActivity {
                         editor.putString("id",Data.status);
                         editor.putString("name", name.getText().toString());
                         editor.apply();
+
+
+                        new GetSemester(Login.this).execute();
+                        new WorkloadConnection(Login.this).execute();
+                        new GetReminderConnection(Login.this).execute();
+                        new MeetingListConnection(Login.this).execute();
+                        new JoinedMeetingConnection(Login.this,name.getText().toString()).execute();
+                        new GetMyMeetingConnection(Login.this,name.getText().toString()).execute();
+
+
+
+                        SharedPreferences sharedpreferencesa = getSharedPreferences("ofline", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editora = sharedpreferencesa.edit();
+
+                        Gson x = new Gson();
+                        ArrayList<String> temp = new ArrayList<>();
+                        if(Data.y != null)
+                        {
+                            for(int i=0;i<Data.y.size();i++)
+                            {
+                                String json = x.toJson(Data.y.get(i));
+                                temp.add(json);
+                            }
+                        }
+                        Set<String> set = new HashSet<String>();
+                        set.addAll(temp);
+                        editora.putStringSet("workload", set);
+
+                        ArrayList<String> temp2 = new ArrayList<>();
+                        if(Data.x != null)
+                        {
+                            for(int i=0;i<Data.x.size();i++)
+                            {
+                                String json = x.toJson(Data.x.get(i));
+                                System.out.println("Added data to reminder");
+                                temp2.add(json);
+                            }
+                        }
+                        Set<String> set1 = new HashSet<String>();
+                        set.addAll(temp2);
+                        editora.putStringSet("reminder", set1);
+
+
+
+                        editora.commit();
+                        editora.apply();
+
+                        System.out.println("connection rrdy"+Data.networkstatus);
 
                         Intent i = new Intent(Login.this,mainmenu.class);
                         startActivity(i);

@@ -23,11 +23,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class JoinedMeetingConnection extends AsyncTask<Void,Void,Void>
 {
     Context cx;
-    public JoinedMeetingConnection(Context context)
+    public JoinedMeetingConnection(Context context,String ID)
     {
+        this.iidd = ID;
         cx = context;
     }
-
+    String iidd;
     ProgressDialog progressDialog;
     @Override
     protected void onPostExecute(Void v) {
@@ -64,7 +65,7 @@ public class JoinedMeetingConnection extends AsyncTask<Void,Void,Void>
                 .build();
         MeetingInterface GDS = m.create(MeetingInterface.class);
         //JsonReader.setLenient(true);
-        Call<ArrayList<MeetingModel>> call = GDS.getmymeeetinglist("k173848");
+        Call<ArrayList<MeetingModel>> call = GDS.getjoined(iidd);
         //Call<String> call = GDS.Get(id);
         Response<ArrayList<MeetingModel>> x = null;
         try {

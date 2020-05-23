@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.example.munazamfyp.Adapters.MeetingAdapter;
+import com.example.munazamfyp.Connections.JoinedMeetingConnection;
 import com.example.munazamfyp.DataModels.Data;
 import com.example.munazamfyp.DataModels.extendeditem;
 
@@ -29,7 +30,6 @@ public class JoinedMeetinList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_joined_meetin_list);
-
 
         Meetingitem =new ArrayList<>();
 

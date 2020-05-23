@@ -76,12 +76,14 @@ public class ContinueAs extends AppCompatActivity {
             Data.mobj.setDescription("adsasdas");
             Data.mobj.setDate("13123");
             //new AddMeetingConnections(this).execute();
-
+            new GetSemester(this).execute();
             new WorkloadConnection(this).execute();
             new GetReminderConnection(this).execute();
             new MeetingListConnection(this).execute();
-            new JoinedMeetingConnection(this).execute();
+            new JoinedMeetingConnection(this,nam).execute();
             new GetMyMeetingConnection(this,nam).execute();
+
+
 
             SharedPreferences sharedpreferences = getSharedPreferences("ofline", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedpreferences.edit();
@@ -122,7 +124,6 @@ public class ContinueAs extends AppCompatActivity {
             System.out.println("connection rrdy"+Data.networkstatus);
         }
 
-        new GetSemester(this).execute();
 
         Intent i = new Intent(this,mainmenu.class);
         startActivity(i);
